@@ -1,0 +1,1 @@
+import styles from '../componentStyles/propertyFeatureStyle.module.css';
