@@ -6,8 +6,8 @@ function App() {
     console.log(house)
     return (
         <div className="App">
-            {house.map((i, idx) => (
-                <Card item={i} key={idx} />
+            {house.map((i) => (
+                <Card item={i} key={i.id} />
             ))}
         </div>
     )
