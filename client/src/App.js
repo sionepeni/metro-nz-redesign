@@ -10,14 +10,12 @@ function App() {
     <Router>
         <div className="App">
 
-            
-
             <Routes>
-                <Route path="/">{/* Home Page component here */}</Route>
-                <Route path="/propertyfeauture">{/* Feature Page component here */}</Route>
-                <Route path="/propertylisting"> <Listings /></Route>
-                <Route path="/booking">{/*Booking Page components here*/}</Route>
-                <Route path="/applicationform">{/*Application Form Component here */}</Route>
+                <Route path="/" element={{/* Home Page component here */}}></Route>
+                <Route path="/propertyfeauture"element={{/* Feature Page component here */}}></Route>
+                <Route path="/propertylisting" element={<Listings />}> </Route>
+                <Route path="/booking" element={{/*Booking Page components here*/}}></Route>
+                <Route path="/applicationform" element={{/*Application Form Component here */}}></Route>
             </Routes>
 
         </div>
