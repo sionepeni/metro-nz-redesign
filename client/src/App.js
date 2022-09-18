@@ -15,9 +15,6 @@ function App() {
                 <Route path="/booking">{/*Booking Page components here*/}</Route>
                 <Route path="/applicationform">{/*Application Form Component here */}</Route>
             </Switch>
-            {house.map((i) => (
-                <Card item={i} key={i.id} />
-            ))}
         </div>
     </Router>
     )
