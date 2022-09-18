@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="App">
             {house.map((i) => (
-                <Card item={i} key={i.id} />
+                <Card item={i} key={i.address} />
             ))}
         </div>
     )
