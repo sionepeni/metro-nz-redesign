@@ -1,11 +1,15 @@
-import styles from '../style/PropertyFeatureStyles.module.css';
+import React from 'react';
+import '../style/propertyFeaturePageStyle.css';
+import Header from '../components/header/Header';
 
 
 export default function PropertyFeature() {
 
     return(
         
-        <div className={styles.pageBody}>
+        <div className="Page-Container">
+            <Header/>
+
 
         </div>
     )

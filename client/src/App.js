@@ -13,7 +13,7 @@ function App() {
         <div className="App">
             <Routes>
                 <Route path="/" element={{/* Home Page component here */}}></Route>
-                <Route path="/propertyfeauture"element={<PropertyFeature/>}></Route>
+                <Route path="/propertyfeature"element={<PropertyFeature/>}></Route>
                 <Route path="/propertylisting" element={<Listings />}> </Route>
                 <Route path="/booking" element={{/*Booking Page components here*/}}></Route>
                 <Route path="/applicationform" element={{/*Application Form Component here */}}></Route>
