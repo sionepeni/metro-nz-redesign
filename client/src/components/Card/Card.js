@@ -55,13 +55,6 @@ function Card({
                     <span className="right-arrow" onClick={nextImage}>
                         <BsChevronRight />
                     </span>
-                    <span className="card-image-dots">
-                        {Object.values(pictures).map((item, idx) => (
-                            <span key={idx}>
-                                <img src={dot} alt="dot" />
-                            </span>
-                        ))}
-                    </span>
                 </div>
 
                 <div className="card-description">
@@ -101,7 +94,7 @@ function Card({
                 <div className="card-price">
                     <p>${cost} per week</p>
                 </div>
-                <span className="card-image-test">
+                <span className="card-image-dot">
                     {Object.values(pictures).map((item, index) => (
                         <span key={index} onClick={() => moveDot(index + 1)}>
                             <img
