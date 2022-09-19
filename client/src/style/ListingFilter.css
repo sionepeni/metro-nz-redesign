@@ -1,6 +1,7 @@
 .listings-filter {
   position: relative;
   width: fit-content;
+  margin: auto;
 }
 .listings-filter-main {
   display: flex;
