@@ -20,8 +20,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 30px;
-            height: 30px;
+            width: 20px;
+            height: 20px;
             position: absolute;
             z-index: 3;
             top: 7rem;
@@ -38,12 +38,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 30px;
-            width: 30px;
+            height: 20px;
+            width: 20px;
             position: absolute;
             z-index: 3;
             top: 7rem;
-            left: 19.5rem;
+            left: 20rem;
             background-color: rgba(255, 255, 255, 0.571);
             border-radius: 50%;
             &:hover{

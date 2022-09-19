@@ -1,17 +1,23 @@
 import "../../style/Card.css"
 import { useState } from "react"
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
-import { IoLocationOutline } from "react-icons/io5"
-import { TbBed, TbBath, TbPaw, TbHeart } from "react-icons/tb"
-import { RiCarLine } from "react-icons/ri"
 import dot from "./assets/dot.png"
 import selectedDot from "./assets/selected-dot.png"
+import {
+    HeartStraight,
+    CaretLeft,
+    CaretRight,
+    MapPin,
+    PawPrint,
+    Car,
+    Bathtub,
+    Bed,
+} from "phosphor-react"
 
 function Card({
     item: { header, address, bedroom, bathroom, parking, pet, cost, pictures },
 }) {
     const [currentImage, setCurrentImage] = useState(1)
-    const [heartColor, setHeartColor] = useState("")
+    const [heartColor, setHeartColor] = useState("black")
 
     const nextImage = () => {
         if (currentImage !== Object.keys(pictures).length) {
@@ -34,7 +40,9 @@ function Card({
     }
 
     const toggleHeart = () => {
-        heartColor === "" ? setHeartColor("#F85757") : setHeartColor("")
+        heartColor === "black"
+            ? setHeartColor("#F85757")
+            : setHeartColor("black")
     }
 
     const moveDot = (index) => {
@@ -46,14 +54,17 @@ function Card({
             <div className="card-container">
                 <div className="card-image">
                     <span onClick={toggleHeart} className="card-image-heart">
-                        <TbHeart color={heartColor} size={30} />
+                        <HeartStraight color={heartColor} size={30} />
                     </span>
-                    <span className="left-arrow" onClick={prevImage}>
-                        <BsChevronLeft />
+                    <span
+                        className={currentImage === 1 ? "" : "left-arrow"}
+                        onClick={prevImage}
+                    >
+                        {currentImage === 1 ? "" : <CaretLeft size={30} />}
                     </span>
                     <img src={pictures[`${currentImage}`]} alt="house" />
                     <span className="right-arrow" onClick={nextImage}>
-                        <BsChevronRight />
+                        <CaretRight size={30} />
                     </span>
                 </div>
 
@@ -63,29 +74,29 @@ function Card({
 
                 <div className="card-address">
                     <span className="card-description-logo">
-                        <IoLocationOutline size={30} />
+                        <MapPin size={32} />
                     </span>
                     <p>{address}</p>
                 </div>
 
                 <div className="card-icons">
                     <span className="card-icons-bed">
-                        <TbBed size={35} />
+                        <Bed size={32} />
                         &nbsp;
                         <p>{bedroom}</p>
                     </span>
                     <span className="card-icons-bath">
-                        <TbBath size={25} />
+                        <Bathtub size={32} />
                         &nbsp;
                         <p>{bathroom}</p>
                     </span>
                     <span className="card-icons-car">
-                        <RiCarLine size={25} />
+                        <Car size={32} />
                         &nbsp;
                         <p>{parking}</p>
                     </span>
                     <span className="card-icons-pet">
-                        <TbPaw size={25} />
+                        <PawPrint size={32} />
                         &nbsp;
                         <p>{pet}</p>
                     </span>

@@ -1,0 +1,99 @@
+.listings-filter {
+  position: relative;
+  width: fit-content;
+}
+.listings-filter-main {
+  display: flex;
+  flex-direction: row;
+}
+.listings-filter-button {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 0 2rem 0 0;
+  padding: 1rem 1.5rem 1rem 3.5rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+}
+.listings-filter-button .listings-filter-house-icon, .listings-filter-button .listings-filter-up-icon, .listings-filter-button .listings-filter-down-icon, .listings-filter-button .listings-filter-search-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+.listings-filter .listings-filter-location-icon {
+  position: relative;
+  padding-right: 2rem;
+}
+.listings-filter .listings-filter-location-icon .filter-location-icon {
+  position: absolute;
+  top: 1rem;
+  left: 1.4rem;
+}
+.listings-filter .listings-filter-location-icon input {
+  padding: 0.6rem 0.8rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  height: 100%;
+  width: 23rem;
+}
+.listings-filter .listings-filter-location-icon input:focus {
+  outline: none;
+}
+.listings-filter .listings-filter-location-icon input[type=text] {
+  padding-left: 3.5rem;
+}
+
+.listings-filter-option-show {
+  width: 1035px;
+  position: absolute;
+  text-align: start;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.612);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+}
+.listings-filter-option-show button {
+  background-color: white;
+  margin: 0.5rem 0.8rem 0.5rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  cursor: pointer;
+}
+.listings-filter-option-show button:hover {
+  background-color: #F85757;
+  color: white;
+}
+.listings-filter-option-show .listings-filter-set-2, .listings-filter-option-show .listings-filter-set-1, .listings-filter-option-show .listings-filter-set-0 {
+  display: flex;
+  flex-direction: column;
+}
+.listings-filter-option-show .listings-filter-set-2 div, .listings-filter-option-show .listings-filter-set-1 div, .listings-filter-option-show .listings-filter-set-0 div {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 18px;
+}
+.listings-filter-option-show .listings-filter-set-0 {
+  width: 350px;
+}
+
+.listings-filter-option-hide {
+  visibility: hidden;
+  position: absolute;
+}
+
+.weighted-font {
+  font-weight: 600;
+}
+
+.colored-btn {
+  background-color: #F85757;
+  color: white;
+}
