@@ -1,0 +1,26 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-family: sans-serif;
+}
+.logo img{
+    margin-left: -9vw;
+    width: 13vw;
+}
+.headerNav{
+    margin-right: -8vw;
+    margin-top: 0.5vw;
+}
+.headerNav a{
+    color: black;
+    margin-left: 2vw;
+    text-decoration: none;
+}
+.headerNav button {
+    margin-left: 20px;
+}
+.headerIcon{
+    float: right;
+    margin-left: 0.6vw;
+}
