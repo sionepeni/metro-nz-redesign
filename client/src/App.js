@@ -11,7 +11,6 @@ function App() {
     return (
     <Router>
         <div className="App">
-
             <Routes>
                 <Route path="/" element={{/* Home Page component here */}}></Route>
                 <Route path="/propertyfeauture"element={<PropertyFeature/>}></Route>
@@ -19,7 +18,6 @@ function App() {
                 <Route path="/booking" element={{/*Booking Page components here*/}}></Route>
                 <Route path="/applicationform" element={{/*Application Form Component here */}}></Route>
             </Routes>
-
         </div>
     </Router>
     )
