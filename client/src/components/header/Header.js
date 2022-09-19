@@ -2,6 +2,7 @@ import {useContext} from 'react'
 import AppContext from '../../context/AppContext'
 import '../../style/header/Header.css'
 
+
 const Header = () => {
     const {HeaderData} = useContext(AppContext)
 
