@@ -1,3 +1,4 @@
+import "../style/Listings.css"
 import { useState } from "react"
 import axios from "axios"
 import Card from "../components/Card/Card"
@@ -17,13 +18,18 @@ export default function Listings() {
 
     return (
         <>
-            <div>Hello</div>
-            <ListingFilter />
-            <ListingError />
-            <button onClick={test}>testing pull</button>
-            {listings.map((i) => (
-                <Card item={i} key={i.address} />
-            ))}
+            <div className="listings-page">
+                <h1>Discover your new rental home</h1>
+                <div className="listings-page-filter">
+                    <h2>What are you looking for in a home?</h2>
+                    <ListingFilter />
+                </div>
+                <ListingError />
+                <button onClick={test}>testing pull</button>
+                {listings.map((i) => (
+                    <Card item={i} key={i.address} />
+                ))}
+            </div>
         </>
     )
 }

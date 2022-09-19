@@ -63,7 +63,7 @@ export default function ListingFilter() {
                         &nbsp;Filters
                     </button>
 
-                    <button className="listings-filter-button colored-btn weighted-font">
+                    <button className="listings-filter-button colored-btn weighted-font btn-end">
                         <MagnifyingGlass
                             className="listings-filter-search-icon"
                             size={32}
