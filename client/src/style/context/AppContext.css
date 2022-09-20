@@ -15,3 +15,11 @@
     border-width: 1px;
     border-radius: 6px;
 }
+.middleButton {
+    color: #fff;
+    background-color: #F85757;
+    padding: 10px 30px 10px 30px;
+    border-style: none;
+    border-width: 1px;
+    border-radius: 6px;
+}
