@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&family=Inter:wght@500&display=swap");
+.listings-bar {
+  display: flex;
+  align-items: flex-end;
+  width: 80%;
+  margin: auto;
+  justify-content: space-between;
+  position: relative;
+  padding-top: 3rem;
+}
+.listings-bar p {
+  font-size: larger;
+  font-weight: 500;
+}
+.listings-bar-mid .btn-one {
+  padding: 1rem 1rem 1rem 2.5rem;
+}
+.listings-bar-mid button {
+  background-color: #111827;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 16px;
+  position: relative;
+  cursor: pointer;
+  position: relative;
+  font-family: "DM Sans", sans-serif;
+}
+.listings-bar-mid button .listings-map-icon, .listings-bar-mid button .listings-list-icon {
+  position: absolute;
+  left: 0.8rem;
+  top: 1rem;
+}
+.listings-bar-end .btn-two {
+  padding: 1rem 1rem 1rem 2.5rem;
+  margin-right: 2rem;
+  margin-left: 6rem;
+}
+.listings-bar-end .btn-three {
+  padding: 1rem 2.5rem 1rem 1rem;
+  text-align: start;
+}
+.listings-bar-end button {
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 16px;
+  position: relative;
+  font-family: "DM Sans", sans-serif;
+  cursor: pointer;
+  position: relative;
+  width: 12rem;
+}
+.listings-bar-end button .listings-down-icon, .listings-bar-end button .listings-up-icon {
+  position: absolute;
+  right: 1.5rem;
+  top: 1rem;
+}
+.listings-bar-end button .listings-heart-icon {
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+}
+
+.listings-dropdown-hidden {
+  visibility: hidden;
+  position: absolute;
+}
+
+.listings-dropdown-show {
+  z-index: 1000;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  top: 8rem;
+  width: 11.5rem;
+  background-color: #f3f4f6;
+  border-radius: 15px;
+}
+.listings-dropdown-show button {
+  padding: 1rem 1.5rem;
+  text-align: start;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+.listings-dropdown-show button:hover {
+  color: #F85757;
+}
+.listings-dropdown-show .listings-menu-1 {
+  border-radius: 15px 15px 0 0;
+}
+.listings-dropdown-show .listings-menu-4 {
+  border-radius: 0 0 15px 15px;
+}

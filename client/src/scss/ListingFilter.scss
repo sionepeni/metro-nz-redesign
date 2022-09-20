@@ -1,0 +1,147 @@
+.listings-filter{
+    position: relative;
+    width: fit-content;
+    margin: auto;
+    &-main{
+        display: flex;
+        flex-direction: row;
+    }
+    &-button{
+        display: flex;
+        align-items: center;
+        background-color: white;
+        margin: 0 2rem 0 0;
+        padding: .5rem 1.5rem .5rem 3.5rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 16px;
+        position: relative;
+        cursor: pointer;
+        .listings-filter-house-icon, .listings-filter-up-icon, .listings-filter-down-icon, .listings-filter-search-icon{
+            position: absolute;
+            top: .5rem;
+            left: 1rem;
+            width: 30px;
+        }
+    }
+    .listings-filter-location-icon{
+    position: relative;
+    padding-right: 2rem;
+    .filter-location-icon{
+        position: absolute;
+        top: .5rem;
+        left: 1.3rem;
+    }
+    input {
+        padding: .6rem .8rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 18px;
+        height: 100%;
+        width: 23rem;
+        &:focus{
+            outline: none;
+        }
+        &[type=text]{
+            padding-left: 3.5rem;
+        }
+    }
+}
+}
+
+.property-options-show{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    z-index: 1000;
+    width: 14.5rem;
+    button{
+        background-color: white;
+        padding: 1rem 1.5rem;
+        text-align: start;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            color: #F85757;
+        } 
+    }
+        .property-options-show-top{
+            border-radius: 15px 15px 0 0;
+        }
+        .property-options-show-bottom{
+            border-radius:0 0 15px 15px;
+        }
+}
+
+.listings-filter-option-show{
+    width: 1035px;
+    position: absolute;
+    text-align: start;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.831);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 1rem;
+    transition: 
+    0.4s height cubic-bezier(.8,.6,.6,2),
+    0.4s padding cubic-bezier(.8,.6,.6,2),
+    0.4s margin cubic-bezier(.8,.6,.6,2),
+    0.4s 0.2s color,
+    0.4s background-color;
+    button{
+        background-color: white;
+        margin: .5rem .8rem .5rem 0;
+        padding: .6rem 1rem;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 18px;
+        cursor: pointer;
+        transition: 
+        0.1s height cubic-bezier(.8,.6,2,.6),
+        0.1s padding cubic-bezier(.8,.6,2,.6),
+        0.1s margin cubic-bezier(.8,.6,2,.6),
+        0.1s 0.2s color,
+        0.1s background-color;
+        &:hover{
+            background-color: #F85757;
+            color: white;
+        }
+    }
+    .listings-filter-set-2, .listings-filter-set-1,.listings-filter-set-0{
+        display:flex;
+        flex-direction: column;
+        div{
+            display: flex;
+            align-items: center;
+            padding-top: 2rem;
+            font-size: 18px;
+            
+        }
+    }
+    .listings-filter-set-0{
+        width: 350px;
+    }
+}
+
+
+
+
+.property-options-hidden,.listings-filter-option-hide{
+    visibility: hidden;
+    position: absolute;
+}
+
+.weighted-font{
+    font-weight: 600;
+}
+.colored-btn{
+    border: none;
+    background-color: #F85757;
+    color: white;
+}
+.btn-end{
+    margin: 0;
+}
