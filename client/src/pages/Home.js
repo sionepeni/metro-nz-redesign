@@ -1,3 +1,6 @@
+import {useContext} from 'react'
+import AppContext from '../context/AppContext'
+
 import Header from '../components/header/Header.js'
 import Footer from '../components/footer/Footer.js'
 import HomeHeroImg from '../components/HomeHeroImg.js'
@@ -6,7 +9,10 @@ import HomeMiddleSection from '../components/HomeMiddleSection.js'
 import HomeTenants from '../components/HomeTenants.js'
 import HomeWhyUs from '../components/HomeWhyUs.js'
 
+
 const Home = () => {
+  const {HomeCards} = useContext(AppContext)
+
   return (
     <div>
       <Header />
@@ -21,3 +27,4 @@ const Home = () => {
 }
 
 export default Home
+

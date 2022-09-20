@@ -22,6 +22,10 @@ import twothousand from './images/2000.png'
 import trophy from './images/trophy.png'
 import metroimg from './images/metroimg.png'
 import redblob from './images/redblob.png'
+import stars from './images/stars.png'
+import kate from './images/kate.png'
+import pinal from './images/pinal.png'
+import annette from './images/annette.png'
 import '../style/context/AppContext.css'
 
 const AppContext = createContext()
@@ -133,8 +137,15 @@ export const AppProvider = ({children}) => {
     }
 
     const HomeCards = {
-        homecardheading: <h1>Dont' just take our word for it</h1>
-
+        homecardheading: <h1>Dont' just take our word for it</h1>,
+        stars: <img src={stars} alt='stars' />,
+        kate: <img src={kate} alt='kate' />,
+        pinal: <img src={pinal} alt='pinal' />,
+        annette: <img src={annette} alt='annette' />,
+        readmore: 'read more',
+        katename: 'Kate Kendrick',
+        pinalname: 'Pinal Patel',
+        annettename: 'Annette Black',
     }
 
     return <AppContext.Provider value={{HeaderData, FooterData, HomeData, TenantData}}>
