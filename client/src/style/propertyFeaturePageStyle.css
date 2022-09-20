@@ -1,0 +1,41 @@
+.Page-Container{
+    font-family: sans-serif;
+    
+}
+.Header-Container{
+    
+}
+
+.Footer-Container{
+ margin-top: 100vh;
+
+    
+}
+.Body-Container{
+    display: flex;
+    justify-content: end;
+    /* background-color: blue; */
+    width: 100%;
+    height: 170vh;
+    
+}
+
+.Property-Description{
+    margin-left:10%;
+
+}
+
+.Booking-Container{
+    margin-right: 10%;
+}
+
+.Random-Text{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    
+}
+
+.Horizontal{
+ color: black;
+}
