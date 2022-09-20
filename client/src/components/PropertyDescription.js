@@ -3,6 +3,9 @@ import Bed from '../style/pics/Bed.png';
 import Bath from '../style/pics/bath.png';
 import Car from '../style/pics/Car.png';
 import Amenities from '../style/pics/Amenities.png';
+import Map from './Map';
+
+
 
 export default function PropertyDescription() {
 
@@ -26,10 +29,22 @@ export default function PropertyDescription() {
             
                  <hr className="Horizontal"/>
                  <h4>Property Amenities</h4><br/>
+                 <div className="Amenities">
+                    <img src={Amenities}/><br/><br/><br/>
+                 </div>
+                 <div className="Map-Container">
+                    <h4>Where you'll be</h4>
+                    <p>Mt Eden, Auckland</p>
+                    <Map/>
+                 </div>
+
+
+
                  
             </div>
 
-            <img className="Amenities-Style" src={Amenities}/>
+            
+            
 
 
 
