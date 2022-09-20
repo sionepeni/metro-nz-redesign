@@ -29,19 +29,7 @@ export default function PropertyFeature() {
 
                     <div className="Booking-Container">
                      <BookingForm />   
-                    </div>
-
-                    
-                        
-
-                    
-
-
-
-                    
-                     
-                     
-                        {/* <MapContainer/> */}
+                    </div> 
 
                      
                      
