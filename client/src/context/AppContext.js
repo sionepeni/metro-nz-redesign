@@ -4,6 +4,15 @@ import logoimg from './images/Metro-Property-Management-NZ-Logo-1 1.png'
 import icon from './images/login.PNG'
 import envelope from './images/envelope-simple.png'
 import phone from './images/phone-call.png'
+import ellipse from './images/Ellipse 57.png'
+import vector from './images/Vector.png'
+import timeline from './images/timeline.PNG'
+import house from './images/house.png'
+import sliders from './images/sliders.png'
+import mappin from './images/map-pin.png'
+import tiltedimg1 from './images/tiltedimg1.PNG'
+import tiltedimg2 from './images/tiltedimg2.PNG'
+import search from './images/magnifying-glass.png'
 import '../style/context/AppContext.css'
 
 const AppContext = createContext()
@@ -51,7 +60,22 @@ export const AppProvider = ({children}) => {
         copyright: <p>Design with love All right reserved</p>
     }
 
-    return <AppContext.Provider value={{HeaderData, FooterData}}>
+    const HomeData = {
+        ellipse: <img src={ellipse} alt='ellipse' />,
+        vector: <img src={vector} alt='vector' />,
+        mainText: <h1>Discover the perfect<br/>rental to call home</h1>,
+        subText: <p>We can help you find your dream home.<br/>It's simple and easy with us.</p>,
+        apply: <h1>Apply for a new rental home in 4 easy steps</h1>,
+        timeline: <img src={timeline} alt='timeline' />,
+        select: <img src={house} alt='house'></img>,
+        sliders: <img src={sliders} alt='slider' />,
+        mappin: <img src={mappin} alt='map pin' />,
+        tiltedimg1: <img src={tiltedimg1} alt='tiltedimg' />,
+        tiltedimg2: <img src={tiltedimg2} alt='tiltedimg' />,
+        search: <img src={search} alt='search' />
+    }
+
+    return <AppContext.Provider value={{HeaderData, FooterData, HomeData}}>
         {children}
     </AppContext.Provider>
 }
