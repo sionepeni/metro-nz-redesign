@@ -2,6 +2,7 @@ import '../style/BookingForm.css'
 import AgentPic from '../style/pics/Ellipse 5.png'
 import Phone from '../style/pics/phoneicon.png'
 
+
 export default function BookingForm() {
 
     return(

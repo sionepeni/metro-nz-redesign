@@ -3,6 +3,7 @@ import Bed from '../style/pics/Bed.png';
 import Bath from '../style/pics/bath.png';
 import Car from '../style/pics/Car.png';
 import Amenities from '../style/pics/Amenities.png';
+import Card from './Card/Card'
 
 export default function PropertyDescription() {
 
@@ -30,6 +31,7 @@ export default function PropertyDescription() {
             </div>
 
             <img className="Amenities-Style" src={Amenities}/>
+            
 
 
 

@@ -5,6 +5,7 @@ import Footer from '../components/footer/Footer';
 import BookingForm from '../components/BookingForm';
 import PropertyDescription from '../components/PropertyDescription';
 import { MapContainer } from '../components/Map';
+import Card from '../components/Card/Card';
 
 
 export default function PropertyFeature() {
@@ -26,11 +27,16 @@ export default function PropertyFeature() {
                         <PropertyDescription/>
                     </div>
 
-
-
                     <div className="Booking-Container">
                      <BookingForm />   
                     </div>
+
+                    
+                        
+
+                    
+
+
 
                     
                      
