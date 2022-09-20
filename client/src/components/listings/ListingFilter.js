@@ -15,25 +15,89 @@ import {
     CurrencyCircleDollar,
 } from "phosphor-react"
 
-export default function ListingFilter() {
+export default function ListingFilter({ propertyType }) {
     const [showFilters, setShowFilters] = useState(false)
+    const [showPropertyType, setShowPropertyType] = useState(false)
+    const [showChosenProperty, setShowChosenProperty] =
+        useState("Property type")
 
-    const handleFilters = () => {
-        setShowFilters(!showFilters)
+    const handleFilters = () => setShowFilters(!showFilters)
+    const handlePropertyType = () => setShowPropertyType(!showPropertyType)
+    const closeOptions = (e) => {
+        setShowPropertyType(false)
+        setShowChosenProperty(e.target.value)
     }
-
     return (
         <>
             <div className="listings-filter">
                 <span className="listings-filter-main">
-                    <button className="listings-filter-button">
+                    <button
+                        onClick={handlePropertyType}
+                        className="listings-filter-button"
+                    >
                         <House
                             size={32}
                             className="listings-filter-house-icon"
                         />{" "}
-                        &nbsp;Property type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
-                        <CaretDown size={32} />
+                        &nbsp;{showChosenProperty}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
+                        {showPropertyType ? (
+                            <CaretUp size={32} />
+                        ) : (
+                            <CaretDown size={32} />
+                        )}
                     </button>
+                    <div
+                        className={
+                            showPropertyType
+                                ? "property-options-show"
+                                : "property-options-hidden"
+                        }
+                    >
+                        <button
+                            onClick={propertyType}
+                            onClickCapture={closeOptions}
+                            value="Apartment"
+                            className="property-options-show-top"
+                        >
+                            Apartment
+                        </button>
+                        <button
+                            onClick={propertyType}
+                            onClickCapture={closeOptions}
+                            value="House"
+                        >
+                            House
+                        </button>
+                        <button
+                            onClick={propertyType}
+                            onClickCapture={closeOptions}
+                            value="Unit"
+                        >
+                            Unit
+                        </button>
+                        <button
+                            onClick={propertyType}
+                            onClickCapture={closeOptions}
+                            value="Townhouse"
+                        >
+                            Townhouse
+                        </button>
+                        <button
+                            onClick={propertyType}
+                            onClickCapture={closeOptions}
+                            value="Lifestyle"
+                        >
+                            Lifestyle property
+                        </button>
+                        <button
+                            onClick={propertyType}
+                            onClickCapture={closeOptions}
+                            value="Section"
+                            className="property-options-show-bottom"
+                        >
+                            Section
+                        </button>
+                    </div>
 
                     <span className="listings-filter-location-icon">
                         <MapPin size={32} className="filter-location-icon" />

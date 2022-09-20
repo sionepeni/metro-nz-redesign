@@ -1,13 +1,46 @@
+@import 'global';
+
 .listings-page{
+    font-family: $dm;
     h1{
         width: fit-content;
         margin: auto;
         font-size: 66px;
         text-align: center;
-        padding: 8rem 0 5rem 0;
+        padding: 6rem 0 5rem 0;
     }
     &-filter{
         width: fit-content;
         margin: auto;
+    }
+    &-content{
+        margin-inline: auto;
+        max-width: 83.5%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &-pagination{
+        width: fit-content;
+        margin: 3rem 0 8rem 0;
+        margin-inline: auto;
+        button{
+            border: 1px solid #919EAB;
+            background-color: white;
+            font-size: 18px;
+            padding: .8rem 1rem;
+            margin: .5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            &:hover{
+                border: 1px solid black;
+            }
+            &:focus{
+                border: 1px solid black;
+
+            }
+        }
+    }
+    .disabled-btn{
+        background-color: #c7ced4;
     }
 }
