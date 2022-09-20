@@ -1,0 +1,101 @@
+@import 'global';
+
+.listings-bar{
+    display: flex;
+    align-items: flex-end;
+    width: 80%;
+    margin: auto;
+    justify-content: space-between;
+    position: relative;
+    padding-top: 3rem;
+    p{
+        font-size: larger;
+        font-weight: 500;
+    }
+    &-mid{
+        .btn-one{
+            padding: 1rem 1rem 1rem 2.5rem;
+        }
+        button{
+        background-color: #111827;
+        color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 16px;
+        position: relative;
+        cursor: pointer;
+        position: relative;
+        font-family: $dm;
+        
+        .listings-map-icon, .listings-list-icon{
+            position: absolute;
+            left: 0.8rem;
+            top: 1rem;
+        }
+        }
+    }
+    &-end{
+        .btn-two{
+            padding: 1rem 1rem 1rem 2.5rem;
+            margin-right: 2rem;
+            margin-left: 6rem;
+        }
+        .btn-three{
+            padding: 1rem 2.5rem 1rem 1rem;
+            text-align: start;
+        }
+        button{
+        background-color: white;
+        border-radius: 10px;
+        border: 1px solid black;
+        font-size: 16px;
+        position: relative;
+        font-family: $dm;
+        cursor: pointer;
+        position: relative;
+        width: 12rem;
+        .listings-down-icon, .listings-up-icon{
+            position: absolute;
+            right: 1.5rem;
+            top: 1rem;
+        }
+        
+        .listings-heart-icon{
+            position: absolute;
+            left: 1rem;
+            top: 1rem;
+        }
+    }
+}
+}
+.listings-dropdown-hidden{
+    visibility: hidden;
+    position: absolute;
+}
+.listings-dropdown-show{
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    top: 8rem;
+    width: 11.5rem;
+    background-color: #f3f4f6;
+    border-radius: 15px;
+    button{
+        padding: 1rem 1.5rem;
+        text-align: start;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        &:hover{
+            color: #F85757;
+        } 
+    }
+    .listings-menu-1{
+        border-radius: 15px 15px 0 0;
+    }
+    .listings-menu-4{
+        border-radius: 0 0 15px 15px;
+    }
+}
