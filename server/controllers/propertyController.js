@@ -63,11 +63,11 @@ const getDscProperties = asyncHandler(async (req, res) => {
 
 const getTypeProperties = asyncHandler(async (req, res) => {
     const pageSize = 8
-    const test = req.query.type
+    const test = req.query.type || 1
     const page = parseInt(req.query.page || "0")
     const total = await Properties.countDocuments({})
-    const allListings = await Properties.countDocuments({})
-    const listings = await Properties.find({ type: test })
+    const allListings = await Properties.countDocuments({ type: test })
+    const listings = await Properties.find({ type: `"${test}"` })
         .limit(pageSize)
         .skip(pageSize * page)
     res.json({

@@ -17,20 +17,32 @@
         font-size: 16px;
         position: relative;
         cursor: pointer;
-        .listings-filter-house-icon, .listings-filter-up-icon, .listings-filter-down-icon, .listings-filter-search-icon{
+        .listings-filter-house-icon, .listings-filter-up-icon, .listings-filter-down-icon{
             position: absolute;
-            top: .5rem;
+            top: .3rem;
             left: 1rem;
             width: 30px;
         }
+        .listings-filter-search-icon{
+            position: absolute;
+            top: .6rem;
+            left: 1.4rem;
+            width: 30px;
+        }
+        .caret-filter{
+            position: absolute;
+            right: 0.8rem;
+            top: .7rem;
+        }
     }
+    
     .listings-filter-location-icon{
     position: relative;
     padding-right: 2rem;
     .filter-location-icon{
         position: absolute;
-        top: .5rem;
-        left: 1.3rem;
+        top: .4rem;
+        left: 1rem;
     }
     input {
         padding: .6rem .8rem;
@@ -38,7 +50,7 @@
         border: 1px solid black;
         font-size: 18px;
         height: 100%;
-        width: 23rem;
+        width: 26rem;
         &:focus{
             outline: none;
         }
@@ -47,7 +59,7 @@
         }
     }
 }
-}
+
 
 .property-options-show{
     display: flex;
@@ -55,7 +67,7 @@
     position: absolute;
     top: 4rem;
     z-index: 1000;
-    width: 14.5rem;
+    width: 14.8rem;
     button{
         background-color: white;
         padding: 1rem 1.5rem;
@@ -73,6 +85,7 @@
         .property-options-show-bottom{
             border-radius:0 0 15px 15px;
         }
+    }
 }
 
 .listings-filter-option-show{
@@ -127,7 +140,15 @@
 }
 
 
+.house-btn{
+    width: 13rem;
+    height: 3rem;
+}
 
+.filter-btn{
+    width: 8rem;
+    height: 3rem;
+}
 
 .property-options-hidden,.listings-filter-option-hide{
     visibility: hidden;
@@ -144,4 +165,5 @@
 }
 .btn-end{
     margin: 0;
+    width: 11.5rem;
 }

@@ -19,11 +19,22 @@
   position: relative;
   cursor: pointer;
 }
-.listings-filter-button .listings-filter-house-icon, .listings-filter-button .listings-filter-up-icon, .listings-filter-button .listings-filter-down-icon, .listings-filter-button .listings-filter-search-icon {
+.listings-filter-button .listings-filter-house-icon, .listings-filter-button .listings-filter-up-icon, .listings-filter-button .listings-filter-down-icon {
   position: absolute;
-  top: 0.5rem;
+  top: 0.3rem;
   left: 1rem;
   width: 30px;
+}
+.listings-filter-button .listings-filter-search-icon {
+  position: absolute;
+  top: 0.6rem;
+  left: 1.4rem;
+  width: 30px;
+}
+.listings-filter-button .caret-filter {
+  position: absolute;
+  right: 0.8rem;
+  top: 0.7rem;
 }
 .listings-filter .listings-filter-location-icon {
   position: relative;
@@ -31,8 +42,8 @@
 }
 .listings-filter .listings-filter-location-icon .filter-location-icon {
   position: absolute;
-  top: 0.5rem;
-  left: 1.3rem;
+  top: 0.4rem;
+  left: 1rem;
 }
 .listings-filter .listings-filter-location-icon input {
   padding: 0.6rem 0.8rem;
@@ -40,7 +51,7 @@
   border: 1px solid black;
   font-size: 18px;
   height: 100%;
-  width: 23rem;
+  width: 26rem;
 }
 .listings-filter .listings-filter-location-icon input:focus {
   outline: none;
@@ -48,16 +59,15 @@
 .listings-filter .listings-filter-location-icon input[type=text] {
   padding-left: 3.5rem;
 }
-
-.property-options-show {
+.listings-filter .property-options-show {
   display: flex;
   flex-direction: column;
   position: absolute;
   top: 4rem;
   z-index: 1000;
-  width: 14.5rem;
+  width: 14.8rem;
 }
-.property-options-show button {
+.listings-filter .property-options-show button {
   background-color: white;
   padding: 1rem 1.5rem;
   text-align: start;
@@ -65,13 +75,13 @@
   border: none;
   cursor: pointer;
 }
-.property-options-show button:hover {
+.listings-filter .property-options-show button:hover {
   color: #F85757;
 }
-.property-options-show .property-options-show-top {
+.listings-filter .property-options-show .property-options-show-top {
   border-radius: 15px 15px 0 0;
 }
-.property-options-show .property-options-show-bottom {
+.listings-filter .property-options-show .property-options-show-bottom {
   border-radius: 0 0 15px 15px;
 }
 
@@ -115,6 +125,16 @@
   width: 350px;
 }
 
+.house-btn {
+  width: 13rem;
+  height: 3rem;
+}
+
+.filter-btn {
+  width: 8rem;
+  height: 3rem;
+}
+
 .property-options-hidden, .listings-filter-option-hide {
   visibility: hidden;
   position: absolute;
@@ -132,4 +152,5 @@
 
 .btn-end {
   margin: 0;
+  width: 11.5rem;
 }

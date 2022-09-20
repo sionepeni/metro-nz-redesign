@@ -9,11 +9,11 @@ import {
     List,
 } from "phosphor-react"
 
-export default function ListingBar({ found, sortListings }) {
-    const [hide, setHide] = useState(true)
+export default function ListingBar({ found, sortListings, splitContent }) {
+    const [showMap, setShowMap] = useState(true)
     const [showDropDown, setShowDropDown] = useState(false)
 
-    const test = () => setHide(!hide)
+    const changeView = () => setShowMap(!showMap)
     const dropDown = () => setShowDropDown(!showDropDown)
     const closeOptions = () => setShowDropDown(!showDropDown)
 
@@ -25,23 +25,38 @@ export default function ListingBar({ found, sortListings }) {
                     criteria
                 </p>
                 <div className="listings-bar-mid">
-                    <button onClick={test} className="btn-one">
-                        {hide ? (
+                    {showMap ? (
+                        <button
+                            value="map"
+                            onClickCapture={splitContent}
+                            onClick={changeView}
+                            className="btn-one"
+                        >
                             <MapTrifold
                                 className="listings-map-icon"
                                 size={20}
                             />
-                        ) : (
+                            Show results on map
+                        </button>
+                    ) : (
+                        <button
+                            value="list"
+                            onClickCapture={splitContent}
+                            onClick={changeView}
+                            className="btn-one"
+                        >
                             <List
                                 className="listings-list-icon"
                                 color="white"
                                 size={20}
                             />
-                        )}
-                        {hide ? "Show results on map" : "Show results as list"}
-                    </button>
+                            Show results as list
+                        </button>
+                    )}
                 </div>
-                <div className="listings-bar-end">
+                <div
+                    className={showMap ? "listings-bar-end" : "listings-hidden"}
+                >
                     <button className="btn-two">
                         <HeartStraight
                             className="listings-heart-icon"
@@ -65,7 +80,7 @@ export default function ListingBar({ found, sortListings }) {
                     className={
                         showDropDown
                             ? "listings-dropdown-show"
-                            : "listings-dropdown-hidden"
+                            : "listings-hidden"
                     }
                 >
                     <button
@@ -78,14 +93,14 @@ export default function ListingBar({ found, sortListings }) {
                     <button
                         onClickCapture={closeOptions}
                         onClick={sortListings}
-                        value="expensive"
+                        value="dsc"
                     >
                         Highest price
                     </button>
                     <button
                         onClickCapture={closeOptions}
                         onClick={sortListings}
-                        value="cheapest"
+                        value="asc"
                         className="listings-menu-4"
                     >
                         Lowest price

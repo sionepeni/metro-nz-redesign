@@ -6,7 +6,7 @@ import {
     Car,
     Bathtub,
     Bed,
-    FadersHorizontal,
+    SlidersHorizontal,
     CaretUp,
     CaretDown,
     Armchair,
@@ -27,13 +27,14 @@ export default function ListingFilter({ propertyType }) {
         setShowPropertyType(false)
         setShowChosenProperty(e.target.value)
     }
+
     return (
         <>
             <div className="listings-filter">
                 <span className="listings-filter-main">
                     <button
                         onClick={handlePropertyType}
-                        className="listings-filter-button"
+                        className="listings-filter-button house-btn"
                     >
                         <House
                             size={32}
@@ -41,9 +42,9 @@ export default function ListingFilter({ propertyType }) {
                         />{" "}
                         &nbsp;{showChosenProperty}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{" "}
                         {showPropertyType ? (
-                            <CaretUp size={32} />
+                            <CaretUp className="caret-filter" size={20} />
                         ) : (
-                            <CaretDown size={32} />
+                            <CaretDown className="caret-filter" size={20} />
                         )}
                     </button>
                     <div
@@ -110,7 +111,7 @@ export default function ListingFilter({ propertyType }) {
                     </span>
 
                     <button
-                        className="listings-filter-button weighted-font filter-trigger"
+                        className="listings-filter-button weighted-font filter-trigger filter-btn"
                         onClick={handleFilters}
                     >
                         {showFilters ? (
@@ -119,7 +120,7 @@ export default function ListingFilter({ propertyType }) {
                                 className="listings-filter-up-icon"
                             />
                         ) : (
-                            <FadersHorizontal
+                            <SlidersHorizontal
                                 size={32}
                                 className="listings-filter-down-icon"
                             />
@@ -130,7 +131,7 @@ export default function ListingFilter({ propertyType }) {
                     <button className="listings-filter-button colored-btn weighted-font btn-end">
                         <MagnifyingGlass
                             className="listings-filter-search-icon"
-                            size={32}
+                            size={26}
                             color="white"
                         />{" "}
                         &nbsp;Search Now

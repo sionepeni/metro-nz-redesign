@@ -1,10 +1,11 @@
 import "../style/Listings.css"
 import { useState, useEffect } from "react"
-import Card from "../components/Card/Card"
-import ListingFilter from "../components/listings/ListingFilter"
 import Header from "../components/header/Header"
-import Footer from "../components/footer/Footer"
+import ListingFilter from "../components/listings/ListingFilter"
 import ListingBar from "../components/listings/ListingBar"
+import Card from "../components/Card/Card"
+import Footer from "../components/footer/Footer"
+import mapImg from "../components/listings/assets/Basemap image.png"
 import { CaretLeft, CaretRight } from "phosphor-react"
 
 export default function Listings() {
@@ -16,6 +17,7 @@ export default function Listings() {
     const [disableNextBtn, setDisableNextBtn] = useState(false)
     const [propertySortBy, setPropertySortBy] = useState("view")
     const [propertyTypeBy, setPropertyTypeBy] = useState("")
+    const [showMap, setShowMap] = useState("list")
 
     useEffect(() => {
         fetch(
@@ -29,7 +31,7 @@ export default function Listings() {
             })
         checkBtns()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentPage, propertySortBy, propertyTypeBy])
+    }, [currentPage, propertySortBy, propertyTypeBy, allListings])
 
     const fetchListingByType = () => {
         fetch(
@@ -46,19 +48,15 @@ export default function Listings() {
     const pages = new Array(numberOfPages).fill(null).map((v, i) => i)
 
     const prevPage = () => {
-        if (currentPage === 0) {
-            setDisablePreviousBtn(true)
-        } else {
-            setCurrentPage(currentPage - 1)
-        }
+        currentPage === 0
+            ? setDisablePreviousBtn(true)
+            : setCurrentPage(currentPage - 1)
     }
 
     const nextPage = () => {
-        if (currentPage === numberOfPages - 1) {
-            setDisableNextBtn(true)
-        } else {
-            setCurrentPage(currentPage + 1)
-        }
+        currentPage === numberOfPages - 1
+            ? setDisableNextBtn(true)
+            : setCurrentPage(currentPage + 1)
     }
 
     const checkBtns = () => {
@@ -70,27 +68,14 @@ export default function Listings() {
             : setDisableNextBtn(false)
     }
 
-    const sortListings = (e) => {
-        if (e.target.value === "expensive") {
-            setPropertySortBy("dsc")
-        } else {
-            if (e.target.value === "cheapest") {
-                setPropertySortBy("asc")
-            }
-        }
-    }
+    const sortListings = (e) => setPropertySortBy(e.target.value)
 
     const propertyType = (e) => {
-        if (e.target.value === "Apartment") {
-            setPropertyTypeBy("Apartment")
-            fetchListingByType()
-        } else {
-            if (e.target.value === "House") {
-                setPropertyTypeBy("House")
-                fetchListingByType()
-            }
-        }
+        setPropertyTypeBy(e.target.value)
+        fetchListingByType()
     }
+
+    const splitContent = (e) => setShowMap(e.target.value)
 
     return (
         <>
@@ -103,12 +88,38 @@ export default function Listings() {
                     <ListingFilter propertyType={propertyType} />
                 </div>
 
-                <ListingBar found={allListings} sortListings={sortListings} />
+                <ListingBar
+                    found={allListings}
+                    sortListings={sortListings}
+                    splitContent={splitContent}
+                />
 
-                <div className="listings-page-content">
-                    {listings.map((i, idx) => (
-                        <Card item={i} key={idx} />
-                    ))}
+                <div className="content-split">
+                    <div
+                        className={
+                            showMap === "list"
+                                ? "listings-page-content"
+                                : "content-split-first"
+                        }
+                    >
+                        {listings.map((i, idx) => (
+                            <Card item={i} key={idx} />
+                        ))}
+                    </div>
+                    <div
+                        className={
+                            showMap === "list"
+                                ? "hide-listings-map"
+                                : "content-split-second"
+                        }
+                    >
+                        <img
+                            src={mapImg}
+                            alt="map"
+                            width={1500}
+                            height={2500}
+                        />
+                    </div>
                 </div>
 
                 <div className="listings-page-pagination">
