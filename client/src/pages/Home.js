@@ -8,10 +8,12 @@ import HomeSearch from '../components/HomeSearch.js'
 import HomeMiddleSection from '../components/HomeMiddleSection.js'
 import HomeTenants from '../components/HomeTenants.js'
 import HomeWhyUs from '../components/HomeWhyUs.js'
+import ReviewCards from '../components/ReviewCards'
+import HomeCards from '../components/HomeCards'
+
 
 
 const Home = () => {
-  const {HomeCards} = useContext(AppContext)
 
   return (
     <div>
@@ -21,6 +23,7 @@ const Home = () => {
       <HomeMiddleSection />
       <HomeTenants />
       <HomeWhyUs />
+      <HomeCards />
       <Footer />
     </div>
   )

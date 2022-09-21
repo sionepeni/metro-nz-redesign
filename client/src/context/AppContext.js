@@ -26,6 +26,11 @@ import stars from './images/stars.png'
 import kate from './images/kate.png'
 import pinal from './images/pinal.png'
 import annette from './images/annette.png'
+import speech from './images/speech.png'
+import round from './images/round.png'
+import awards from './images/awards.png'
+import westpac from './images/westpac.png'
+import topreviews from './images/topreviews.png'
 import '../style/context/AppContext.css'
 
 const AppContext = createContext()
@@ -146,9 +151,14 @@ export const AppProvider = ({children}) => {
         katename: 'Kate Kendrick',
         pinalname: 'Pinal Patel',
         annettename: 'Annette Black',
+        speech: <img src={speech} alt='speech' />,
+        round: <img src={round} alt='round' />,
+        awards: <img src={awards} alt='awards' />,
+        westpac: <img src={westpac} alt='westpac' />,
+        topreviews: <img src={topreviews} alt='reviews' />
     }
 
-    return <AppContext.Provider value={{HeaderData, FooterData, HomeData, TenantData}}>
+    return <AppContext.Provider value={{HeaderData, FooterData, HomeData, TenantData, HomeCards}}>
         {children}
     </AppContext.Provider>
 }
