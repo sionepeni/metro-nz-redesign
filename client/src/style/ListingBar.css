@@ -96,8 +96,5 @@
   color: #F85757;
 }
 .listings-dropdown-show .listings-menu-1 {
-  border-radius: 15px 15px 0 0;
-}
-.listings-dropdown-show .listings-menu-4 {
-  border-radius: 0 0 15px 15px;
+  background-color: transparent;
 }

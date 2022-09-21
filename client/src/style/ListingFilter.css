@@ -3,6 +3,9 @@
   width: fit-content;
   margin: auto;
 }
+.listings-filter .animate-search {
+  transform: scale(0.98);
+}
 .listings-filter-main {
   display: flex;
   flex-direction: row;
@@ -66,9 +69,11 @@
   top: 4rem;
   z-index: 1000;
   width: 14.8rem;
+  border-radius: 15px;
+  background-color: white;
 }
 .listings-filter .property-options-show button {
-  background-color: white;
+  background-color: transparent;
   padding: 1rem 1.5rem;
   text-align: start;
   font-size: 16px;
@@ -78,11 +83,8 @@
 .listings-filter .property-options-show button:hover {
   color: #F85757;
 }
-.listings-filter .property-options-show .property-options-show-top {
-  border-radius: 15px 15px 0 0;
-}
-.listings-filter .property-options-show .property-options-show-bottom {
-  border-radius: 0 0 15px 15px;
+.listings-filter .property-options-show .property-selected {
+  color: #F85757;
 }
 
 .listings-filter-option-show {
@@ -96,6 +98,11 @@
   flex-direction: row;
   padding-bottom: 1rem;
   transition: 0.4s height cubic-bezier(0.8, 0.6, 0.6, 2), 0.4s padding cubic-bezier(0.8, 0.6, 0.6, 2), 0.4s margin cubic-bezier(0.8, 0.6, 0.6, 2), 0.4s 0.2s color, 0.4s background-color;
+}
+.listings-filter-option-show .selected-filter-btn {
+  background-color: #F85757;
+  color: white;
+  border: 1px solid #F85757;
 }
 .listings-filter-option-show button {
   background-color: white;
@@ -111,11 +118,11 @@
   background-color: #F85757;
   color: white;
 }
-.listings-filter-option-show .listings-filter-set-2, .listings-filter-option-show .listings-filter-set-1, .listings-filter-option-show .listings-filter-set-0 {
+.listings-filter-option-show .listings-filter-set-2, .listings-filter-option-show .listings-filter-set-1 {
   display: flex;
   flex-direction: column;
 }
-.listings-filter-option-show .listings-filter-set-2 div, .listings-filter-option-show .listings-filter-set-1 div, .listings-filter-option-show .listings-filter-set-0 div {
+.listings-filter-option-show .listings-filter-set-2 div, .listings-filter-option-show .listings-filter-set-1 div {
   display: flex;
   align-items: center;
   padding-top: 2rem;
@@ -123,6 +130,23 @@
 }
 .listings-filter-option-show .listings-filter-set-0 {
   width: 350px;
+  position: relative;
+}
+.listings-filter-option-show .listings-filter-set-0 p {
+  padding-left: 3rem;
+  text-align: start;
+}
+.listings-filter-option-show .listings-filter-set-0 .dollar-sign {
+  left: 0;
+  top: 1.5rem;
+  position: absolute;
+}
+.listings-filter-option-show .listings-filter-set-0 .listings-filter-price {
+  text-align: center;
+}
+.listings-filter-option-show .listings-filter-set-0 .price-slider-container {
+  position: relative;
+  height: 7rem;
 }
 
 .house-btn {

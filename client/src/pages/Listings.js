@@ -1,4 +1,5 @@
 import "../style/Listings.css"
+import axios from "axios"
 import { useState, useEffect } from "react"
 import Header from "../components/header/Header"
 import ListingFilter from "../components/listings/ListingFilter"
@@ -15,35 +16,37 @@ export default function Listings() {
     const [numberOfPages, setNumberOfPages] = useState(0)
     const [disablePreviousBtn, setDisablePreviousBtn] = useState(true)
     const [disableNextBtn, setDisableNextBtn] = useState(false)
-    const [propertySortBy, setPropertySortBy] = useState("view")
+    const [propertySortBy, setPropertySortBy] = useState("")
     const [propertyTypeBy, setPropertyTypeBy] = useState("")
     const [showMap, setShowMap] = useState("list")
+    const [numberOfBeds, setNumberOfBeds] = useState("")
+    const [numberOfCars, setNumberOfCars] = useState("")
+    const [numberOfBaths, setNumberOfBaths] = useState("")
+    const [petStatus, setPetStatus] = useState("")
+    const [furnishStatus, setFurnishStatus] = useState("")
+    const [searchRequest, setSearchRequest] = useState(true)
+    const [queryToBeSent, setQueryToBeSent] = useState([])
 
     useEffect(() => {
-        fetch(
-            `http://localhost:5000/listings/${propertySortBy}?page=${currentPage}`
-        )
-            .then((response) => response.json())
-            .then(({ totalPages, listings, allListings }) => {
-                setListing(listings)
-                setNumberOfPages(totalPages)
-                setAllListing(allListings)
-            })
+        const fetchListings = () => {
+            try {
+                fetch(
+                    `http://localhost:5000/listings/?page=${currentPage}${queryToBeSent}`
+                )
+                    .then((response) => response.json())
+                    .then(({ totalPages, listings, allListings }) => {
+                        setListing(listings)
+                        setNumberOfPages(totalPages)
+                        setAllListing(allListings)
+                    })
+            } catch (err) {
+                console.log(err)
+            }
+        }
+        fetchListings()
         checkBtns()
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [currentPage, propertySortBy, propertyTypeBy, allListings])
-
-    const fetchListingByType = () => {
-        fetch(
-            `http://localhost:5000/listings/properties?page=${currentPage}&type=${propertyTypeBy}`
-        )
-            .then((response) => response.json())
-            .then(({ totalPages, listings, allListings }) => {
-                setListing(listings)
-                setNumberOfPages(totalPages)
-                setAllListing(allListings)
-            })
-    }
+    }, [searchRequest, currentPage])
 
     const pages = new Array(numberOfPages).fill(null).map((v, i) => i)
 
@@ -68,14 +71,26 @@ export default function Listings() {
             : setDisableNextBtn(false)
     }
 
-    const sortListings = (e) => setPropertySortBy(e.target.value)
-
-    const propertyType = (e) => {
-        setPropertyTypeBy(e.target.value)
-        fetchListingByType()
-    }
+    const sortListings = (e) => setPropertySortBy(`&sort=${e.target.value}`)
+    const propertyType = (e) => setPropertyTypeBy(`&type[in]=${e.target.value}`)
+    const handleCars = (e) => setNumberOfCars(`&parking[in]=${e.target.value}`)
+    const handleBeds = (e) => setNumberOfBeds(`&bedroom[in]=${e.target.value}`)
+    const handleFurnish = (e) =>
+        setFurnishStatus(`&furnish[in]=${e.target.value}`)
+    const handleBaths = (e) =>
+        setNumberOfBaths(`&bathroom[in]=${e.target.value}`)
+    const handlePets = (e) => setPetStatus(`&pet[in]=${e.target.value}`)
 
     const splitContent = (e) => setShowMap(e.target.value)
+
+    const toggleSearch = () => {
+        setQueryToBeSent(
+            `${propertySortBy}${numberOfBeds}${numberOfCars}${numberOfBaths}${petStatus}${furnishStatus}${propertyTypeBy}`
+        )
+        setSearchRequest(!searchRequest)
+    }
+
+    console.log(listings)
 
     return (
         <>
@@ -83,9 +98,18 @@ export default function Listings() {
 
             <div className="listings-page">
                 <h1>Discover your new rental home</h1>
+
                 <div className="listings-page-filter">
                     <h2>What are you looking for in a home?</h2>
-                    <ListingFilter propertyType={propertyType} />
+                    <ListingFilter
+                        propertyType={propertyType}
+                        bedrooms={handleBeds}
+                        carparks={handleCars}
+                        furnishings={handleFurnish}
+                        bathrooms={handleBaths}
+                        pets={handlePets}
+                        searchNow={toggleSearch}
+                    />
                 </div>
 
                 <ListingBar
@@ -102,8 +126,8 @@ export default function Listings() {
                                 : "content-split-first"
                         }
                     >
-                        {listings.map((i, idx) => (
-                            <Card item={i} key={idx} />
+                        {listings.map((i) => (
+                            <Card item={i} key={i._id} />
                         ))}
                     </div>
                     <div
@@ -117,7 +141,7 @@ export default function Listings() {
                             src={mapImg}
                             alt="map"
                             width={1500}
-                            height={2500}
+                            height={1200}
                         />
                     </div>
                 </div>
@@ -131,10 +155,10 @@ export default function Listings() {
                         <CaretLeft size={15} />
                     </button>
 
-                    {pages.map((pageIndex) => (
+                    {pages.map((pageIndex, index) => (
                         <button
                             key={pageIndex}
-                            onClick={() => setCurrentPage(pageIndex)}
+                            onClickCapture={() => setCurrentPage(pageIndex)}
                         >
                             {pageIndex + 1}
                         </button>

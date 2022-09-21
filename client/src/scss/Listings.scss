@@ -36,7 +36,6 @@
             }
             &:focus{
                 border: 1px solid black;
-
             }
         }
     }
@@ -59,9 +58,10 @@
         overflow: hidden;
         border-radius: 25px;
     }
-}
-
-.hide-listings-map{
+    .hide-listings-map{
     visibility: hidden;
     position: absolute;
 }
+}
+
+

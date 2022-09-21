@@ -59,8 +59,7 @@
   overflow: hidden;
   border-radius: 25px;
 }
-
-.hide-listings-map {
+.content-split .hide-listings-map {
   visibility: hidden;
   position: absolute;
 }
