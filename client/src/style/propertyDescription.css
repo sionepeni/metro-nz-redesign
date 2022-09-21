@@ -1,0 +1,30 @@
+.Main-Container {
+
+    width:60%
+    
+}
+
+.Main-Container img{
+    height:30px;
+    margin-right: 10%;
+    
+}
+
+.Main-Container p{
+    color: #6D7280;
+    
+}
+
+.Amenities{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.Amenities img{
+width: 581px;
+height: 141px;
+left: 198px;
+top: 1828px;
+}
+
