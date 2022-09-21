@@ -17,7 +17,7 @@ const getProperties = asyncHandler(async (req, res) => {
 
     let queryString = JSON.stringify(reqQuery)
     queryString = queryString.replace(
-        /\b(gt|gte|lt|lte|in)\b/g,
+        /\b(gt|gte|lt|lte|in|all|text|search|eq)\b/g,
         (match) => `$${match}`
     )
 
@@ -38,7 +38,7 @@ const getProperties = asyncHandler(async (req, res) => {
         data: listings,
         totalPages: Math.ceil(total / pageSize),
         listings,
-        allListings: allListings,
+        allListings: listings.length,
     })
 })
 

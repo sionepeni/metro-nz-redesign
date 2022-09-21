@@ -23,6 +23,7 @@ export default function ListingFilter({
     const [furnishStatus, setFurnishStatus] = useState("")
     const [houseType, setHouseType] = useState("Property type")
     const [animation, setAnimation] = useState(false)
+    const [customQuery, setCustomQuery] = useState("")
 
     const handleFilters = () => setShowFilters(!showFilters)
     const handlePropertyType = () => setShowPropertyType(!showPropertyType)
@@ -89,6 +90,7 @@ export default function ListingFilter({
                     <span className="listings-filter-location-icon">
                         {icons[0].map}
                         <input
+                            onChange={searchQuery}
                             type="text"
                             className="listings-filter-input"
                             placeholder="Search by location or

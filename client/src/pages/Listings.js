@@ -7,6 +7,7 @@ import ListingBar from "../components/listings/ListingBar"
 import Card from "../components/Card/Card"
 import Footer from "../components/footer/Footer"
 import mapImg from "../components/listings/assets/Basemap image.png"
+import Map from "../components/Map"
 import { CaretLeft, CaretRight } from "phosphor-react"
 
 export default function Listings() {
@@ -26,6 +27,7 @@ export default function Listings() {
     const [furnishStatus, setFurnishStatus] = useState("")
     const [searchRequest, setSearchRequest] = useState(true)
     const [queryToBeSent, setQueryToBeSent] = useState([])
+    const [customQuery, setCustomQuery] = useState("")
 
     useEffect(() => {
         const fetchListings = () => {
@@ -45,6 +47,8 @@ export default function Listings() {
         }
         fetchListings()
         checkBtns()
+        setCustomQuery("")
+        setQueryToBeSent("")
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchRequest, currentPage])
 
@@ -80,17 +84,16 @@ export default function Listings() {
     const handleBaths = (e) =>
         setNumberOfBaths(`&bathroom[in]=${e.target.value}`)
     const handlePets = (e) => setPetStatus(`&pet[in]=${e.target.value}`)
+    const searchQuery = (e) => setCustomQuery(`&text[search]=${e.target.value}`)
 
     const splitContent = (e) => setShowMap(e.target.value)
 
     const toggleSearch = () => {
         setQueryToBeSent(
-            `${propertySortBy}${numberOfBeds}${numberOfCars}${numberOfBaths}${petStatus}${furnishStatus}${propertyTypeBy}`
+            `${customQuery}${propertySortBy}${numberOfBeds}${numberOfCars}${numberOfBaths}${petStatus}${furnishStatus}${propertyTypeBy}`
         )
         setSearchRequest(!searchRequest)
     }
-
-    console.log(listings)
 
     return (
         <>
@@ -109,6 +112,7 @@ export default function Listings() {
                         bathrooms={handleBaths}
                         pets={handlePets}
                         searchNow={toggleSearch}
+                        searchQuery={searchQuery}
                     />
                 </div>
 
@@ -137,12 +141,7 @@ export default function Listings() {
                                 : "content-split-second"
                         }
                     >
-                        <img
-                            src={mapImg}
-                            alt="map"
-                            width={1500}
-                            height={1200}
-                        />
+                        <Map />
                     </div>
                 </div>
 

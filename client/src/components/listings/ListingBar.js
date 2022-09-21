@@ -67,6 +67,7 @@ export default function ListingBar({ found, sortListings, splitContent }) {
                         .filter((i) => i.sort)
                         .map((i) => (
                             <button
+                                key={i.sort}
                                 className="listings-menu-1"
                                 value={i.value}
                                 id={i.id}
@@ -80,7 +81,7 @@ export default function ListingBar({ found, sortListings, splitContent }) {
                         ))}
                 </div>
             </div>
-            {found === 0 ? <ListingError /> : ""}
+            {!found ? <ListingError /> : ""}
         </>
     )
 }
