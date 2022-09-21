@@ -1,5 +1,11 @@
 "use strict";
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(source, true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(source).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 var asyncHandler = require("express-async-handler");
 
 var Quicksort = require("../functions/Quicksort");
@@ -7,21 +13,56 @@ var Quicksort = require("../functions/Quicksort");
 var Properties = require("../models/propertyModel");
 
 var getProperties = asyncHandler(function _callee(req, res) {
-  var listings;
+  var pageSize, page, allListings, total, query, reqQuery, removeFields, queryString, sortByArray, sortByString, listings;
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
         case 0:
-          _context.next = 2;
-          return regeneratorRuntime.awrap(Properties.find({}, {
-            _id: 0
-          }));
-
-        case 2:
-          listings = _context.sent;
-          res.status(200).json(listings);
+          pageSize = 8;
+          page = parseInt(req.query.page || "0");
+          _context.next = 4;
+          return regeneratorRuntime.awrap(Properties.countDocuments({}));
 
         case 4:
+          allListings = _context.sent;
+          _context.next = 7;
+          return regeneratorRuntime.awrap(Properties.countDocuments({}));
+
+        case 7:
+          total = _context.sent;
+          reqQuery = _objectSpread({}, req.query);
+          removeFields = ["sort", "limit"];
+          removeFields.forEach(function (val) {
+            return delete reqQuery[val];
+          });
+          queryString = JSON.stringify(reqQuery);
+          queryString = queryString.replace(/\b(gt|gte|lt|lte|in)\b/g, function (match) {
+            return "$".concat(match);
+          });
+          query = Properties.find(JSON.parse(queryString));
+
+          if (req.query.sort) {
+            sortByArray = req.query.sort.split(",");
+            sortByString = sortByArray.join(" ");
+            query = query.sort(sortByString);
+          } else {
+            query = query.sort("-createdAt");
+          }
+
+          _context.next = 17;
+          return regeneratorRuntime.awrap(query.limit(pageSize).skip(pageSize * page));
+
+        case 17:
+          listings = _context.sent;
+          res.status(200).json({
+            success: true,
+            data: listings,
+            totalPages: Math.ceil(total / pageSize),
+            listings: listings,
+            allListings: allListings
+          });
+
+        case 19:
         case "end":
           return _context.stop();
       }
@@ -51,162 +92,7 @@ var getSortedProperties = asyncHandler(function _callee2(req, res) {
     }
   });
 });
-var pageProperties = asyncHandler(function _callee3(req, res) {
-  var pageSize, page, total, allListings, listings;
-  return regeneratorRuntime.async(function _callee3$(_context3) {
-    while (1) {
-      switch (_context3.prev = _context3.next) {
-        case 0:
-          pageSize = 8;
-          page = parseInt(req.query.page || "0");
-          _context3.next = 4;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 4:
-          total = _context3.sent;
-          _context3.next = 7;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 7:
-          allListings = _context3.sent;
-          _context3.next = 10;
-          return regeneratorRuntime.awrap(Properties.find({}).limit(pageSize).skip(pageSize * page));
-
-        case 10:
-          listings = _context3.sent;
-          res.json({
-            totalPages: Math.ceil(total / pageSize),
-            listings: listings,
-            allListings: allListings
-          });
-
-        case 12:
-        case "end":
-          return _context3.stop();
-      }
-    }
-  });
-});
-var getAscProperties = asyncHandler(function _callee4(req, res) {
-  var pageSize, page, total, allListings, listings;
-  return regeneratorRuntime.async(function _callee4$(_context4) {
-    while (1) {
-      switch (_context4.prev = _context4.next) {
-        case 0:
-          pageSize = 8;
-          page = parseInt(req.query.page || "0");
-          _context4.next = 4;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 4:
-          total = _context4.sent;
-          _context4.next = 7;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 7:
-          allListings = _context4.sent;
-          _context4.next = 10;
-          return regeneratorRuntime.awrap(Properties.find({}).sort({
-            cost: 1
-          }).limit(pageSize).skip(pageSize * page));
-
-        case 10:
-          listings = _context4.sent;
-          res.json({
-            totalPages: Math.ceil(total / pageSize),
-            listings: listings,
-            allListings: allListings
-          });
-
-        case 12:
-        case "end":
-          return _context4.stop();
-      }
-    }
-  });
-});
-var getDscProperties = asyncHandler(function _callee5(req, res) {
-  var pageSize, page, total, allListings, listings;
-  return regeneratorRuntime.async(function _callee5$(_context5) {
-    while (1) {
-      switch (_context5.prev = _context5.next) {
-        case 0:
-          pageSize = 8;
-          page = parseInt(req.query.page || "0");
-          _context5.next = 4;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 4:
-          total = _context5.sent;
-          _context5.next = 7;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 7:
-          allListings = _context5.sent;
-          _context5.next = 10;
-          return regeneratorRuntime.awrap(Properties.find({}).sort({
-            cost: -1
-          }).limit(pageSize).skip(pageSize * page));
-
-        case 10:
-          listings = _context5.sent;
-          res.json({
-            totalPages: Math.ceil(total / pageSize),
-            listings: listings,
-            allListings: allListings
-          });
-
-        case 12:
-        case "end":
-          return _context5.stop();
-      }
-    }
-  });
-});
-var getTypeProperties = asyncHandler(function _callee6(req, res) {
-  var pageSize, test, page, total, allListings, listings;
-  return regeneratorRuntime.async(function _callee6$(_context6) {
-    while (1) {
-      switch (_context6.prev = _context6.next) {
-        case 0:
-          pageSize = 8;
-          test = req.query.type;
-          page = parseInt(req.query.page || "0");
-          _context6.next = 5;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 5:
-          total = _context6.sent;
-          _context6.next = 8;
-          return regeneratorRuntime.awrap(Properties.countDocuments({}));
-
-        case 8:
-          allListings = _context6.sent;
-          _context6.next = 11;
-          return regeneratorRuntime.awrap(Properties.find({
-            type: test
-          }).limit(pageSize).skip(pageSize * page));
-
-        case 11:
-          listings = _context6.sent;
-          res.json({
-            totalPages: Math.ceil(total / pageSize),
-            listings: listings,
-            allListings: allListings
-          });
-
-        case 13:
-        case "end":
-          return _context6.stop();
-      }
-    }
-  });
-});
 module.exports = {
   getProperties: getProperties,
-  getSortedProperties: getSortedProperties,
-  pageProperties: pageProperties,
-  getDscProperties: getDscProperties,
-  getAscProperties: getAscProperties,
-  getTypeProperties: getTypeProperties
+  getSortedProperties: getSortedProperties
 };

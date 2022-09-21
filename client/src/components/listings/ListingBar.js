@@ -1,21 +1,18 @@
 import "../../style/ListingBar.css"
 import { useState } from "react"
 import ListingError from "./ListingError"
-import {
-    HeartStraight,
-    CaretUp,
-    CaretDown,
-    MapTrifold,
-    List,
-} from "phosphor-react"
+import { buttonArray } from "./listings-component/ListingBtns"
+import { icons } from "./listings-component/ListingIcons"
 
-export default function ListingBar({ found, sortListings }) {
-    const [hide, setHide] = useState(true)
+export default function ListingBar({ found, sortListings, splitContent }) {
+    const [showMap, setShowMap] = useState(true)
     const [showDropDown, setShowDropDown] = useState(false)
+    const [showChosenOption, setShowChosenOption] = useState("Sort by")
 
-    const test = () => setHide(!hide)
+    const changeView = () => setShowMap(!showMap)
     const dropDown = () => setShowDropDown(!showDropDown)
     const closeOptions = () => setShowDropDown(!showDropDown)
+    const handleOption = (e) => setShowChosenOption(e.target.id)
 
     return (
         <>
@@ -25,71 +22,62 @@ export default function ListingBar({ found, sortListings }) {
                     criteria
                 </p>
                 <div className="listings-bar-mid">
-                    <button onClick={test} className="btn-one">
-                        {hide ? (
-                            <MapTrifold
-                                className="listings-map-icon"
-                                size={20}
-                            />
-                        ) : (
-                            <List
-                                className="listings-list-icon"
-                                color="white"
-                                size={20}
-                            />
-                        )}
-                        {hide ? "Show results on map" : "Show results as list"}
-                    </button>
+                    {showMap ? (
+                        <button
+                            value="map"
+                            onClickCapture={splitContent}
+                            onClick={changeView}
+                            className="btn-one"
+                        >
+                            {icons[0].map2}
+                            Show results on map
+                        </button>
+                    ) : (
+                        <button
+                            value="list"
+                            onClickCapture={splitContent}
+                            onClick={changeView}
+                            className="btn-one"
+                        >
+                            {icons[0].list}
+                            Show results as list
+                        </button>
+                    )}
                 </div>
-                <div className="listings-bar-end">
+                <div
+                    className={showMap ? "listings-bar-end" : "listings-hidden"}
+                >
                     <button className="btn-two">
-                        <HeartStraight
-                            className="listings-heart-icon"
-                            size={20}
-                        />
+                        {icons[0].heart}
                         Save this Search
                     </button>
                     <button onClick={dropDown} className="btn-three">
-                        Sort by
-                        {showDropDown ? (
-                            <CaretUp className="listings-up-icon" size={20} />
-                        ) : (
-                            <CaretDown
-                                className="listings-down-icon"
-                                size={20}
-                            />
-                        )}
+                        {showChosenOption}
+                        {showDropDown ? icons[0].up2 : icons[0].down2}
                     </button>
                 </div>
                 <div
                     className={
                         showDropDown
                             ? "listings-dropdown-show"
-                            : "listings-dropdown-hidden"
+                            : "listings-hidden"
                     }
                 >
-                    <button
-                        onClickCapture={closeOptions}
-                        className="listings-menu-1"
-                    >
-                        Newest
-                    </button>
-                    <button onClickCapture={closeOptions}>Oldest</button>
-                    <button
-                        onClickCapture={closeOptions}
-                        onClick={sortListings}
-                        value="expensive"
-                    >
-                        Highest price
-                    </button>
-                    <button
-                        onClickCapture={closeOptions}
-                        onClick={sortListings}
-                        value="cheapest"
-                        className="listings-menu-4"
-                    >
-                        Lowest price
-                    </button>
+                    {buttonArray
+                        .filter((i) => i.sort)
+                        .map((i) => (
+                            <button
+                                className="listings-menu-1"
+                                value={i.value}
+                                id={i.id}
+                                onClickCapture={(e) => (
+                                    closeOptions(), handleOption(e)
+                                )}
+                                onClick={sortListings}
+                            >
+                                {i.sort}
+                            </button>
+                        ))}
                 </div>
             </div>
             {found === 0 ? <ListingError /> : ""}
