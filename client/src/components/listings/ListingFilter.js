@@ -1,12 +1,17 @@
+/* eslint-disable no-sequences */
 import "../../style/ListingFilter.css"
-import { useState } from "react"
+import { useState, useReducer } from "react"
 import { buttonArray } from "./listings-component/ListingBtns"
 import { icons } from "./listings-component/ListingIcons"
+import graph from "./assets/graph.png"
+import {
+    INITIAL_STATE,
+    filterReducer,
+} from "./listings-component/FilterReducer"
 
 export default function ListingFilter({
     propertyType,
     searchQuery,
-    priceRange,
     bedrooms,
     carparks,
     furnishings,
@@ -14,16 +19,12 @@ export default function ListingFilter({
     pets,
     searchNow,
 }) {
+    const [state, dispatch] = useReducer(filterReducer, INITIAL_STATE)
+
     const [showFilters, setShowFilters] = useState(false)
     const [showPropertyType, setShowPropertyType] = useState(false)
-    const [numberOfBeds, setNumberOfBeds] = useState("")
-    const [numberOfCars, setNumberOfCars] = useState("")
-    const [numberOfBaths, setNumberOfBaths] = useState("")
-    const [petStatus, setPetStatus] = useState("")
-    const [furnishStatus, setFurnishStatus] = useState("")
     const [houseType, setHouseType] = useState("Property type")
     const [animation, setAnimation] = useState(false)
-    const [customQuery, setCustomQuery] = useState("")
 
     const handleFilters = () => setShowFilters(!showFilters)
     const handlePropertyType = () => setShowPropertyType(!showPropertyType)
@@ -34,11 +35,16 @@ export default function ListingFilter({
     }
 
     const handleHouseType = (e) => setHouseType(e.target.value)
-    const handleCars = (e) => setNumberOfCars(e.target.value)
-    const handleBeds = (e) => setNumberOfBeds(e.target.value)
-    const handleFurnish = (e) => setFurnishStatus(e.target.value)
-    const handleBaths = (e) => setNumberOfBaths(e.target.value)
-    const handlePets = (e) => setPetStatus(e.target.value)
+
+    const btnSelector = (e) => {
+        dispatch({
+            type: "BTN_SELECT",
+            payload: {
+                id: e.target.id,
+                value: e.target.value,
+            },
+        })
+    }
 
     const toggleAnimate = () => {
         setAnimation(true)
@@ -70,9 +76,11 @@ export default function ListingFilter({
                             .filter((i) => i.house)
                             .map((btn, index) => (
                                 <button
+                                    id="type"
+                                    name="propertyType"
                                     key={index}
                                     className={
-                                        btn.value === houseType
+                                        btn.value === state.type
                                             ? "property-selected"
                                             : ""
                                     }
@@ -90,6 +98,8 @@ export default function ListingFilter({
                     <span className="listings-filter-location-icon">
                         {icons[0].map}
                         <input
+                            name="customQuery"
+                            id="text"
                             onChange={searchQuery}
                             type="text"
                             className="listings-filter-input"
@@ -107,6 +117,7 @@ export default function ListingFilter({
                     </button>
 
                     <button
+                        name="searchRequest"
                         onClick={searchNow}
                         onClickCapture={(e) => (
                             closeOptions(e), toggleAnimate()
@@ -133,6 +144,7 @@ export default function ListingFilter({
                             <div>
                                 {icons[0].dollar}
                                 &nbsp;<p>PRICE</p>
+                                <img src={graph} width={300} alt="graph" />
                             </div>
                             <button>$ min</button>----&nbsp;{" "}
                             <button>$ max</button>
@@ -146,14 +158,16 @@ export default function ListingFilter({
                                 .filter((i, index) => index < 5)
                                 .map((btn, index) => (
                                     <button
+                                        id="bedroom"
+                                        name="numberOfBeds"
                                         key={index}
                                         className={
-                                            btn.value === numberOfBeds
+                                            btn.value === state.bedroom
                                                 ? "selected-filter-btn"
                                                 : ""
                                         }
                                         onClickCapture={bedrooms}
-                                        onClick={(e) => handleBeds(e)}
+                                        onClick={(e) => btnSelector(e)}
                                         value={btn.value}
                                     >
                                         {btn.bed}
@@ -166,14 +180,16 @@ export default function ListingFilter({
                                 .filter((i, index) => index < 4)
                                 .map((btn, index) => (
                                     <button
+                                        id="parking"
+                                        name="numberOfCars"
                                         key={index}
                                         className={
-                                            btn.value === numberOfCars
+                                            btn.value === state.parking
                                                 ? "selected-filter-btn"
                                                 : ""
                                         }
                                         onClickCapture={carparks}
-                                        onClick={(e) => handleCars(e)}
+                                        onClick={(e) => btnSelector(e)}
                                         value={btn.value}
                                     >
                                         {btn.name}
@@ -186,14 +202,16 @@ export default function ListingFilter({
                                 .filter((i) => i.furnish)
                                 .map((btn, index) => (
                                     <button
+                                        id="furnish"
+                                        name="furnishStatus"
                                         key={index}
                                         className={
-                                            btn.value === furnishStatus
+                                            btn.value === state.furnish
                                                 ? "selected-filter-btn"
                                                 : ""
                                         }
                                         onClickCapture={furnishings}
-                                        onClick={(e) => handleFurnish(e)}
+                                        onClick={(e) => btnSelector(e)}
                                         value={btn.value}
                                     >
                                         {btn.furnish}
@@ -209,14 +227,16 @@ export default function ListingFilter({
                                 .filter((i, index) => index < 4)
                                 .map((btn, index) => (
                                     <button
+                                        id="bathroom"
+                                        name="numberOfBaths"
                                         key={index}
                                         className={
-                                            btn.value === numberOfBaths
+                                            btn.value === state.bathroom
                                                 ? "selected-filter-btn"
                                                 : ""
                                         }
                                         onClickCapture={bathrooms}
-                                        onClick={(e) => handleBaths(e)}
+                                        onClick={(e) => btnSelector(e)}
                                         value={btn.value}
                                     >
                                         {btn.name}
@@ -229,14 +249,16 @@ export default function ListingFilter({
                                 .filter((i) => i.pet)
                                 .map((btn, index) => (
                                     <button
+                                        id="pet"
+                                        name="petStatus"
                                         key={index}
                                         className={
-                                            btn.value === petStatus
+                                            btn.value === state.pet
                                                 ? "selected-filter-btn"
                                                 : ""
                                         }
                                         onClickCapture={pets}
-                                        onClick={(e) => handlePets(e)}
+                                        onClick={(e) => btnSelector(e)}
                                         value={btn.value}
                                     >
                                         {btn.pet}
