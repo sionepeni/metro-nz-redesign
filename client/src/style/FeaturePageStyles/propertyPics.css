@@ -1,10 +1,70 @@
 .Main-Body-Pics{
-    margin-left: 11.4vw;
+    margin-top:vh;
+    margin-left: 14vw;
     width:77.5vw;
     height:16vw;
-    background-color: blue;
+    
 }
 
-.Image-Cards img{
-    width:50px;
+
+.Main-Pic{
+    width:31%;
+    margin-left:-0.5vw;
+    margin-right: 1vw;
+    border-radius: 5px;
+
+}
+
+
+
+.Small-Pic {
+    border-radius: 5px;
+    width:15%;
+    margin-bottom: 16.4vh;
+    margin-right: 0.6vw;
+    margin-left: -0.4vw;
+
+}
+
+.Small-Pic-1{
+    border-radius: 5px;
+    width:15%;
+    margin-bottom: 16.4vh;
+    
+}
+
+
+.Other-Pics{
+    margin-top:-15.8vh;
+    margin-left:48.65vw;
+    
+}
+.Other-Pics img{
+    width:40.2%;
+    border-radius: 5px;
+    margin-right: 0.6vw;
+}
+
+.Viewmore-Button{
+    position: absolute;
+    width:7vw;
+    margin-left:65.5vw;
+    margin-top: -4vh;
+}
+
+.card-image-heart{
+    margin-top: 5vh;
+    margin-left:60vw;
+}
+
+.card-image-heart h3{
+    margin-left:66.5vw;
+    
+}
+
+.heart-shape{
+    position: absolute;
+    margin-top: 3vh;
+    margin-left:5vw;
+    cursor: pointer;
 }

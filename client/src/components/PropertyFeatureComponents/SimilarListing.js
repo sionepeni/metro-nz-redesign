@@ -35,7 +35,6 @@ export default function SimilarListing() {
     
     return(
         <div className="Card-Container">
-
           <div className="Card-Body">
             {listings.slice(0, 4).map((i) => (
                 <Card item={i} key={i.id} />
