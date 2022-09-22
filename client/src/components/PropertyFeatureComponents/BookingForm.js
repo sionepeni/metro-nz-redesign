@@ -35,10 +35,10 @@ export default function BookingForm() {
 
                 
             </div>
-            <input type="button" name="next" className="Apply-Button" value="Apply to rent" />
-
+           
             </div>
-            
+             <input type="button" name="next" className="Apply-Button" value="Apply to rent" />
+
 
             
 

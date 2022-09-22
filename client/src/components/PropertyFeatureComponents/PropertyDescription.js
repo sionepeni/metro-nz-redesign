@@ -65,6 +65,7 @@ export default function PropertyDescription() {
                 
                 <div className="Listing-Header">
                     <h2>Similar listings</h2>
+                    <input type="button" name="next" className="Listing-Button" value="Browse all Properties" />
                 </div>
 
 
