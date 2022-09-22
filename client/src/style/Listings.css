@@ -53,7 +53,12 @@
 .content-split-first {
   display: flex;
   flex-wrap: wrap;
-  width: 50%;
+  width: 52%;
+  height: 45vw;
+  overflow-y: scroll;
+}
+.content-split-first::-webkit-scrollbar {
+  display: none;
 }
 .content-split-second {
   width: 50%;
