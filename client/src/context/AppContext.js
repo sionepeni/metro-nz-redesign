@@ -48,7 +48,7 @@ export const AppProvider = ({children}) => {
     }
 
     const FooterData = {
-        fText: <p>'Metro Nz property Management is here<br/>for Renters and Landlords to achieve<br/>harmony'</p>,
+        fText: <p>Metro NZ Property Management is here<br/>for Renters and Landlords to achieve<br/>harmony</p>,
         mail: <img src={envelope} alt='mail' />,
         email: 'agensi@gmail.com',
         phone: <img src={phone} alt='phone' />,

@@ -90,7 +90,6 @@
     width: 10vw
 }
 
-
 figure .image {
     width: 100%;
 }
@@ -99,4 +98,20 @@ figure {
     text-align: center;
     display: table;
     max-width: 30%;
+}
+
+.sliderHeading h1 {
+    margin-left: 4vw;
+}
+.linkButton {
+   display: flex;
+   justify-content: center;
+   margin-top: 5vw;
+   margin-bottom: 10vw;
+}
+.linkButton button {
+    background-color: #fff;
+    padding: 0.5vw 1vw 0.5vw 1vw;
+    border-radius: 6px;
+    font-size: 1vw;
 }
