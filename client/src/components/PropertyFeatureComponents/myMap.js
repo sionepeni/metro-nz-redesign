@@ -4,8 +4,12 @@ import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 
 const mapStyles = {
-  width: '50vw',
-  height: '50vh'
+  width: '40vw',
+  height: '40vh',
+  marginTop:'-45vh',
+  marginLeft:'11.4vw'
+
+  
 };
 
 export class MapContainer extends Component {
@@ -17,10 +21,9 @@ export class MapContainer extends Component {
         style={mapStyles}
         initialCenter={
           {
-            lat: -36.881709407321914,
-            lng: 174.75151524726442
-
-             
+            lat: -36.86908081285832,
+            lng: 174.75964787116422
+          
           }
         }
       />

@@ -1,0 +1,10 @@
+.Main-Body-Pics{
+    margin-left: 11.4vw;
+    width:77.5vw;
+    height:16vw;
+    background-color: blue;
+}
+
+.Image-Cards img{
+    width:50px;
+}
