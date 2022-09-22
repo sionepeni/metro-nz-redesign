@@ -21,7 +21,7 @@ const getProperties = asyncHandler(async (req, res) => {
         (match) => `$${match}`
     )
 
-    query = Properties.find(JSON.parse(queryString))
+    query = Properties.find(JSON.parse(queryString), { _id: 0 })
 
     if (req.query.sort) {
         const sortByArray = req.query.sort.split(",")

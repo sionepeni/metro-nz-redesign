@@ -1,25 +1,27 @@
 import "../style/Listings.css"
-import axios from "axios"
 import { useState, useEffect } from "react"
 import Header from "../components/header/Header"
 import ListingFilter from "../components/listings/ListingFilter"
 import ListingBar from "../components/listings/ListingBar"
 import Card from "../components/Card/Card"
 import Footer from "../components/footer/Footer"
-import mapImg from "../components/listings/assets/Basemap image.png"
 import Map from "../components/Map"
 import { CaretLeft, CaretRight } from "phosphor-react"
 
 export default function Listings() {
     const [allListings, setAllListing] = useState([])
     const [listings, setListing] = useState([])
-    const [currentPage, setCurrentPage] = useState(0)
     const [numberOfPages, setNumberOfPages] = useState(0)
+
+    const [currentPage, setCurrentPage] = useState(0)
+
     const [disablePreviousBtn, setDisablePreviousBtn] = useState(true)
     const [disableNextBtn, setDisableNextBtn] = useState(false)
+
+    const [showMap, setShowMap] = useState("list")
+
     const [propertySortBy, setPropertySortBy] = useState("")
     const [propertyTypeBy, setPropertyTypeBy] = useState("")
-    const [showMap, setShowMap] = useState("list")
     const [numberOfBeds, setNumberOfBeds] = useState("")
     const [numberOfCars, setNumberOfCars] = useState("")
     const [numberOfBaths, setNumberOfBaths] = useState("")
@@ -48,7 +50,7 @@ export default function Listings() {
         fetchListings()
         checkBtns()
         setCustomQuery("")
-        setQueryToBeSent("")
+        setQueryToBeSent([])
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [searchRequest, currentPage])
 
@@ -76,6 +78,8 @@ export default function Listings() {
     }
 
     const sortListings = (e) => setPropertySortBy(`&sort=${e.target.value}`)
+    const splitContent = (e) => setShowMap(e.target.value)
+
     const propertyType = (e) => setPropertyTypeBy(`&type[in]=${e.target.value}`)
     const handleCars = (e) => setNumberOfCars(`&parking[in]=${e.target.value}`)
     const handleBeds = (e) => setNumberOfBeds(`&bedroom[in]=${e.target.value}`)
@@ -84,9 +88,8 @@ export default function Listings() {
     const handleBaths = (e) =>
         setNumberOfBaths(`&bathroom[in]=${e.target.value}`)
     const handlePets = (e) => setPetStatus(`&pet[in]=${e.target.value}`)
-    const searchQuery = (e) => setCustomQuery(`&text[search]=${e.target.value}`)
 
-    const splitContent = (e) => setShowMap(e.target.value)
+    const searchQuery = (e) => setCustomQuery(`&text[search]=${e.target.value}`)
 
     const toggleSearch = () => {
         setQueryToBeSent(
