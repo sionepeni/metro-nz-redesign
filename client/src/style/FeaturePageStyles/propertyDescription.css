@@ -89,23 +89,17 @@
 }
 
 .Listing-Header{
-    display: flex;
-    justify-content: end;
-    margin-top:54vh;
-    
-    width:100vw;
-    
+    position: absolute;
+    width:55vw;
+    margin-top: 141vh;
 }
 
 .Listing-Header h2{
-    margin-top:2vh;
+    
 }
 
 .Listing-Header input{
-    margin-left:60vw; 
-}
-.Listing-Button{
-    margin-top: 6vh;
+    margin-left: 67.7vw;
     width: 10vw;
     background: white;
     font-weight: bold;
