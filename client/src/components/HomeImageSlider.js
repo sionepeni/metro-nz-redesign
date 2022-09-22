@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,15 +11,22 @@ const HomeImageSlider = () => {
 
 
 
-    useEffect(() => {
-        fetch('http://localhost:5000/listings')
-          .then(res => {
-            return res.json()
-          })
-          .then(data => {
-            setListing(data)
-          })
-      }, [])
+        useEffect(() => {
+      const fetchListings = () => {
+          try {
+              fetch(`http://localhost:5000/listings/`)
+                  .then((response) => response.json())
+                  .then(({ listings }) => {
+                      setListing(listings)
+                  })
+          } catch (err) {
+              console.log(err)
+          }
+      }
+      fetchListings()
+  }, [])
+      
+      
     
 
 
