@@ -1,0 +1,145 @@
+.Form-Container{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: absolute;
+    border-radius: 7px;
+    border-width:0.5px;
+    border-color: grey;
+    border-style: double;
+    width:100%;
+    max-width: 14vw;
+    height:80vh;
+    margin-left: 75vw;
+    margin-top: -135vh;
+}
+
+.Sub-Header{
+    margin-top: 0.5vw;
+}
+
+.Sub-Header h2{
+    position: relative;
+    margin-top: 1vw;
+    margin-bottom: -0.5vw;
+}
+
+.Sub-Header img{
+    margin-left: 10px;
+    position: absolute;
+    width:25px;
+    
+}
+
+.Sub-Header p{
+
+color: #F85757;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 150%;
+margin-top: 2vw;
+}
+
+.Horizontal{
+    
+    width:10vw;
+}
+
+.Input-Container h3{
+    display: flex;
+    justify-content: center;
+    /* background-color: #ccc; */
+    
+}
+
+.Input-Form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom:15vw;
+}
+
+.Input-Form hr{
+    margin-top: 2.5vh;
+}
+
+.input-field{
+    padding: 15px 5px;
+    margin-bottom: 2vh;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    width: 80%;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    color: #2C3E50;
+    font-size: 13px;
+    
+    
+}
+
+.action-button{
+    width: 80%;
+    background: #F85757;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 15px 5px;
+    margin: 10px 5px;
+    
+  }
+
+  .Agent-Card{
+    margin-left: 1.2vw;
+    margin-top: -30vh;
+
+  }
+
+  .Agent-Card h3{
+    margin-left: 3vw;
+    margin-bottom: 2vw;
+  }
+
+ .Agent-Pic{
+    margin-top: -0.2vw;
+    width:100px;
+    float:left; /* add this */
+  }
+
+  .Agent-Details{
+    margin-left: 4.5vw;
+  }
+
+  .Agent-Details h3{
+    margin-left: 0.15vw;
+    margin-bottom: 0.7vw;
+  }
+
+  .Email{
+    width: 7vw;
+    margin-bottom:4vh;
+  }
+  
+  .Phone{
+    width: 5vw;
+  }
+
+  .Apply-Button{
+    
+    width: 86%;
+    background: white;
+    font-weight: bold;
+    color: black;
+    border-color: black;
+    border-radius: 5px;
+    border-width: 2px;
+    cursor: pointer;
+    padding: 15px 5px;
+    height: 4vh;
+    margin-top: -8vh;
+    
+
+  }

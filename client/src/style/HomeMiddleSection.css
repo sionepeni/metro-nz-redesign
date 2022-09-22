@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
+.middleContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: 'DM Sans', sans-serif;
+    margin-bottom: 10vw;
+}
+.middleImg img{
+    width: 42vw;
+}
+
+.middleText {
+    vertical-align: middle;
+    margin-right: 10vw;
+    font-size: 1.3vw;
+}
+.middleGreyText {
+    color: grey;
+    margin-top: -10px;
+}
+.tenantHeading{
+    text-align: center;
+    margin-bottom: 8vw
+}
+.tenantHeading h1 {
+    font-size: 3vw;
+}
+
+.iconContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+.iconContainer img {
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+    width: 6vw;
+}
+.homeIcon {
+    display: flex;
+    flex-direction: column;
+    margin-right: 7vw;
+}
+.phoneIcon {
+    display: flex;
+    flex-direction: column;
+}
+.tagIcon {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7vw;
+}
+
+
+
+.whyUsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20vw;
+    font-size: 1vw;
+}
+.whyUsText{
+    margin-right: 10vw;
+    margin-top: 12vw;
+}
+.whyUsIcons {
+    display: flex;
+    vertical-align: middle;
+}
+.whyUsImg{
+    margin-left: 4vw;
+    position: relative;
+}
+.whyUsImg img {
+    width:19vw;
+    margin-top: 7vw;
+}
+.icon3 {
+    margin-top: 0.7vw;
+}
+.redBlob img{
+    position: absolute;
+    right: -5vw;
+    top: 20vw;
+    width: 10vw
+}
+
+
+figure .image {
+    width: 100%;
+}
+
+figure {
+    text-align: center;
+    display: table;
+    max-width: 30%;
+}

@@ -12,5 +12,6 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 
 app.use("/listings", require("./routes/propertyRoutes"))
+app.use("/reviews", require("./routes/reviewRoutes"))
 
 app.listen(port, () => console.log(`server started on port: ${port}`))

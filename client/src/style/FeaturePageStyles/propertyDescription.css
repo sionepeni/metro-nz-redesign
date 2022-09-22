@@ -1,0 +1,113 @@
+.Main-Body-Description{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width:55vw;
+    height:70vw;
+    margin-top:6vw;
+    margin-left: 11.4vw;
+ 
+}
+
+.Sub-Header{
+     
+ justify-content: center;
+        
+}
+
+.Sub-Header h2{
+    margin-top: 2vw;
+}
+
+.Upper-Text{
+    margin-bottom: 2vw;
+    
+}
+
+.Sub-Header img{
+    margin-right: 10%;
+    
+
+}
+
+.Icon-Container{
+    display: flex;
+    
+    
+}
+
+.Feature-icons-1 h3{
+    margin-left: 2vw;
+    margin-top:0.1vw;
+    
+}
+
+.Feature-icons-2{
+    margin-left: 5vw;
+    
+}
+
+.Feature-icons-2 h3{
+    margin-left: 2vw;
+    margin-top:0.1vw;
+}
+
+.Feature-icons-3{
+    /* margin-top: -1.7vw; */
+    margin-left: 5vw;
+}
+
+.Feature-icons-3 h3{
+    margin-left: 2vw;
+    margin-top:0.1vw;
+}
+
+.Amenities{
+    margin-top: 2vw;
+}
+
+.Amenities img{
+    margin-top: 3vh;
+    margin-left: -0.3vw;
+    width: 581px;
+    height: 141px;
+    
+}
+.Sub-Header p{
+    color:grey;
+}
+.Horizontal{
+    width:80%;
+}
+
+.Map-Header{
+    margin-top: 20vh;
+}
+
+.Map-Header p{
+    margin-top: 0.1vw;
+}
+
+.Listing-Header{
+    position: absolute;
+    width:55vw;
+    margin-top: 141vh;
+}
+
+.Listing-Header h2{
+    
+}
+
+.Listing-Header input{
+    margin-left: 67.7vw;
+    width: 10vw;
+    background: white;
+    font-weight: bold;
+    color: black;
+    border-color: black;
+    border-radius: 5px;
+    border-width: 2px;
+    cursor: pointer;
+    padding: 15px 5px;
+    height: 4vh;
+}
