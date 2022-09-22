@@ -15,7 +15,7 @@
     }
     &-content{
         margin-inline: auto;
-        max-width: 83.5%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
     }
@@ -36,7 +36,6 @@
             }
             &:focus{
                 border: 1px solid black;
-
             }
         }
     }
@@ -44,3 +43,26 @@
         background-color: #c7ced4;
     }
 }
+
+.content-split{
+    display: flex;
+    max-width: 83.5%;
+    margin: auto;
+    position: relative;
+    &-first{
+        display: flex;
+        flex-wrap: wrap;
+        width: 50%;
+    }
+    &-second{
+        width: 50%;
+        overflow: hidden;
+        border-radius: 25px;
+    }
+    .hide-listings-map{
+    visibility: hidden;
+    position: absolute;
+    }
+}
+
+

@@ -20,23 +20,15 @@ function Card({
     const [heartColor, setHeartColor] = useState("black")
 
     const nextImage = () => {
-        if (currentImage !== Object.keys(pictures).length) {
-            return setCurrentImage(currentImage + 1)
-        } else {
-            if (currentImage === Object.keys(pictures).length) {
-                return setCurrentImage(1)
-            }
-        }
+        currentImage !== Object.keys(pictures).length
+            ? setCurrentImage(currentImage + 1)
+            : setCurrentImage(1)
     }
 
     const prevImage = () => {
-        if (currentImage !== 1) {
-            return setCurrentImage(currentImage - 1)
-        } else {
-            if (currentImage === 1) {
-                return setCurrentImage(Object.keys(pictures).length)
-            }
-        }
+        currentImage !== 1
+            ? setCurrentImage(currentImage - 1)
+            : setCurrentImage(Object.keys(pictures).length)
     }
 
     const toggleHeart = () => {
