@@ -63,15 +63,13 @@ export default function PropertyDescription() {
                 <p>Mt Eden, Auckland</p>
                 </div>
                 
-                <div className="Listing-Header">
-                    <h2>Similar listings</h2>
-                </div>
-
-
-
+                
             </div>
 
-            
+            <div className="Listing-Header">
+                    <h2>Similar listings</h2>
+                    <input type="button" name="next" className="Listing-Button" value="Browse all Properties" />
+                </div>
         </div>
 
     
