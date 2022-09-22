@@ -1,0 +1,15 @@
+.Card-Container{
+    display: flex;
+    margin-left: 9vw;
+    width:77.5vw;
+    height: 44vh;
+    
+}
+
+.Card-Body{
+    display: flex;
+    flex-direction: horizontal;
+    margin-top:10vh;
+    
+
+}
