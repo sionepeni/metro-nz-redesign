@@ -34,7 +34,7 @@ const HomeImageSlider = () => {
 
 
   return (
-    <div sliderContainer>
+    <div className = "sliderContainer">
         <div className="sliderHeading"><h1>Our latest properties</h1></div>
         <div className="imgslider">
         <Slider {...settings}>
