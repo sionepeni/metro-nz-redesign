@@ -1,5 +1,7 @@
 .listings-filter {
   position: relative;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: auto;
 }
@@ -177,4 +179,4 @@
 .btn-end {
   margin: 0;
   width: 11.5rem;
-}
+}/*# sourceMappingURL=ListingFilter.css.map */

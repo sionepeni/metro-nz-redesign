@@ -1,6 +1,3 @@
-import {useContext} from 'react'
-import AppContext from '../context/AppContext'
-
 import Header from '../components/header/Header.js'
 import Footer from '../components/footer/Footer.js'
 import HomeHeroImg from '../components/HomeHeroImg.js'
