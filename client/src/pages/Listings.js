@@ -1,5 +1,4 @@
 import "../style/Listings.css"
-import axios from "axios"
 import { useState, useEffect } from "react"
 import Header from "../components/header/Header"
 import ListingFilter from "../components/listings/ListingFilter"
