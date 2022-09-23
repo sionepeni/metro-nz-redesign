@@ -88,6 +88,7 @@
 }
 
 .listings-filter-option-show {
+  z-index: 40;
   width: 1035px;
   position: absolute;
   text-align: start;
@@ -118,11 +119,22 @@
   background-color: #F85757;
   color: white;
 }
-.listings-filter-option-show .listings-filter-set-2, .listings-filter-option-show .listings-filter-set-1 {
+.listings-filter-option-show .listings-filter-set-2 {
   display: flex;
   flex-direction: column;
 }
-.listings-filter-option-show .listings-filter-set-2 div, .listings-filter-option-show .listings-filter-set-1 div {
+.listings-filter-option-show .listings-filter-set-2 div {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 18px;
+}
+.listings-filter-option-show .listings-filter-set-1 {
+  display: flex;
+  width: 27rem;
+  flex-direction: column;
+}
+.listings-filter-option-show .listings-filter-set-1 div {
   display: flex;
   align-items: center;
   padding-top: 2rem;
@@ -177,4 +189,77 @@
 .btn-end {
   margin: 0;
   width: 11.5rem;
+}
+
+.filter-show-set {
+  width: 1035px;
+  position: absolute;
+  text-align: start;
+  z-index: 1000;
+  background-color: rgba(255, 255, 255, 0.831);
+  border-radius: 15px;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 1rem;
+  transition: 0.4s height cubic-bezier(0.8, 0.6, 0.6, 2), 0.4s padding cubic-bezier(0.8, 0.6, 0.6, 2), 0.4s margin cubic-bezier(0.8, 0.6, 0.6, 2), 0.4s 0.2s color, 0.4s background-color;
+}
+.filter-show-set .selected-filter-btn {
+  background-color: #F85757;
+  color: white;
+  border: 1px solid #F85757;
+}
+.filter-show-set button {
+  background-color: white;
+  margin: 0.5rem 0.8rem 0.5rem 0;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  border: 1px solid black;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.1s height cubic-bezier(0.8, 0.6, 2, 0.6), 0.1s padding cubic-bezier(0.8, 0.6, 2, 0.6), 0.1s margin cubic-bezier(0.8, 0.6, 2, 0.6), 0.1s 0.2s color, 0.1s background-color;
+}
+.filter-show-set button:hover {
+  background-color: #F85757;
+  color: white;
+}
+.filter-show-set .listings-filter-set-2 {
+  display: flex;
+  flex-direction: column;
+}
+.filter-show-set .listings-filter-set-2 div {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 18px;
+}
+.filter-show-set .listings-filter-set-1 {
+  display: flex;
+  width: 27rem;
+  flex-direction: column;
+}
+.filter-show-set .listings-filter-set-1 div {
+  display: flex;
+  align-items: center;
+  padding-top: 2rem;
+  font-size: 18px;
+}
+.filter-show-set .listings-filter-set-0 {
+  width: 350px;
+  position: relative;
+}
+.filter-show-set .listings-filter-set-0 p {
+  padding-left: 3rem;
+  text-align: start;
+}
+.filter-show-set .listings-filter-set-0 .dollar-sign {
+  left: 0;
+  top: 1.5rem;
+  position: absolute;
+}
+.filter-show-set .listings-filter-set-0 .listings-filter-price {
+  text-align: center;
+}
+.filter-show-set .listings-filter-set-0 .price-slider-container {
+  position: relative;
+  height: 7rem;
 }
