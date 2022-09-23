@@ -1,4 +1,5 @@
 import {createContext} from 'react'
+import { Link } from "react-router-dom"
 
 import logoimg from './images/Metro-Property-Management-NZ-Logo-1 1.png'
 import icon from './images/login.PNG'
@@ -38,11 +39,11 @@ const AppContext = createContext()
 export const AppProvider = ({children}) => {
 
     const HeaderData = {
-        headerImg: <img src={logoimg} alt='logo' />,
+        headerImg: <Link to='/'><img src={logoimg} alt='logo' /></Link>,
         news: <a href='url'>News</a>,
         about: <a href='url'>About us</a>,
         contact: <a href='url'>Contact</a>,
-        button1: <button className='button1'>View property listings</button>,
+        button1: <Link to='/propertylisting'><button className='button1'>View property listings</button></Link>,
         button2: <button className='button2'>List a property</button>,
         icon: <img src={icon} alt='icon' />
     }

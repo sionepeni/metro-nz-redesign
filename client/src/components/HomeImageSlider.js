@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -45,7 +46,7 @@ const HomeImageSlider = () => {
         </Slider>
       </div>
       <div className="linkButton">
-        <button>Browse all Properties</button>
+       <Link to='/propertylisting'><button>Browse all Properties</button></Link>
       </div>
     </div>
   )

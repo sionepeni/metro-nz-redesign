@@ -7,7 +7,7 @@
 .homeText {
     color: #fff;
     position: absolute;
-    top: 15vw;
+    top: 9vw;
     left: 15vw;
     font-size: 2vw;
     font-family: 'DM Sans', sans-serif;
@@ -45,7 +45,7 @@
     font-family: sans-serif;
     text-align: center;
     margin-top: 16vw;
-    margin-bottom: 20vw;
+    margin-bottom: 14vw;
 }
 .homeTimeline img {
     width: 65vw;
@@ -57,10 +57,15 @@
 .searchSelect {
     display: flex;
     flex-direction: column;
-    width: 15vw;
+    width: 20vw;
     margin-bottom: 2vw;
 
 }
+select option:checked,
+select option:hover {
+    box-shadow: 0 0 10px 100px #000 inset;
+}
+
 .searchSelect select {
     height: 2vw;
     margin-bottom: 0.8vw;
@@ -98,6 +103,10 @@
     margin-bottom: 1vw;
     border-radius: 6px;
     border-style: none;
+    cursor: pointer;
+}
+.searchButton button:hover {
+    background-color: #DC3939;
 }
 .searchButton img {
     width: 1vw;
@@ -105,13 +114,14 @@
 }
 .searchButton p {
     position: absolute;
-    right: 2vw;
+    right: 7vw;
     bottom: 0.6vw;
+    cursor: pointer;
 }
 
 .searchContainer {
     position: absolute;
-    top: 40vw;
+    top: 34vw;
     left: 20vw;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 1.5vw 2vw 0vw 2vw;
