@@ -10,7 +10,6 @@ const HomeImageSlider = () => {
     const [listings, setListing] = useState([])
 
 
-
         useEffect(() => {
       const fetchListings = () => {
           try {
@@ -26,10 +25,6 @@ const HomeImageSlider = () => {
       fetchListings()
   }, [])
       
-      
-    
-
-
       const settings = {
         infinite: true,
         dots: false,
@@ -39,7 +34,6 @@ const HomeImageSlider = () => {
         autoplay: true,
       autoplaySpeed: 3000,
 }
-
 
   return (
     <div className = "sliderContainer">

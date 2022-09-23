@@ -1,5 +1,6 @@
 import {useContext} from 'react'
 import AppContext from '../context/AppContext'
+import { filterReducer } from './listings/listings-component/FilterReducer'
 import '../style/HomeHeroImg.css'
 
 
@@ -19,6 +20,7 @@ const HomeSearch = () => {
           <button>Search Now</button>
           <p>Filters</p>
         </div>
+        
         <div className='houseIcon'>
           {HomeData.select}
         </div>
