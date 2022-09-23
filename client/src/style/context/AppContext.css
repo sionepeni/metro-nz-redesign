@@ -7,14 +7,24 @@
 }
 
 .button2 {
-    color: black;
+    color: #111827;
     background-color: #fff;
     padding: 10px 30px 10px 30px;
     border-style: solid;
-    border-color: black;
+    border-color: #111827;
     border-width: 1px;
     border-radius: 6px;
 }
+.button1:hover {
+    background-color: #DC3939;
+    border-color: #DC3939;
+}
+.button2:hover {
+    color: #DC3939;
+    border-color: #DC3939;
+}
+
+
 .middleButton {
     color: #fff;
     background-color: #F85757;

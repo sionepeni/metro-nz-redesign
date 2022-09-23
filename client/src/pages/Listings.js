@@ -1,5 +1,6 @@
 import "../style/Listings.css"
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import Header from "../components/header/Header"
 import ListingFilter from "../components/listings/ListingFilter"
 import ListingBar from "../components/listings/ListingBar"
@@ -134,7 +135,7 @@ export default function Listings() {
                         }
                     >
                         {listings.map((i) => (
-                            <Card item={i} key={i._id} />
+                          <Link to='/propertyfeature'><Card item={i} key={i._id} /></Link>
                         ))}
                     </div>
                     <div

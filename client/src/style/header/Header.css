@@ -19,6 +19,7 @@
 }
 .headerNav button {
     margin-left: 20px;
+    cursor: pointer;
 }
 .headerIcon{
     float: right;
